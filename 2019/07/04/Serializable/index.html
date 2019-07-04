@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>test | Demok blog</title>
+  <title>Serializable | Demok blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://yoursite.com/2019/07/04/test/index.html">
+  <meta name="description" content="关于Serializable(序列化)接口的实现 持久化的简单介绍： “持久化”意味着对象的“生存时间”并不取决于程序是否正在执行——它存在或“生存”于程序的每一次调用之间。通过序列化一个对象，将其写入磁盘，以后在程序再次调用时重新恢复那个对象，就能圆满实现一种“持久”效果。  语言里增加了对象序列化的概念后，可提供对两种主要特性的支持：  远程方法调用（RMI）使本来存在于其他机器的对象可以表现">
+<meta name="keywords" content="序列化接口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Serializable">
+<meta property="og:url" content="http://yoursite.com/2019/07/04/Serializable/index.html">
 <meta property="og:site_name" content="Demok blog">
+<meta property="og:description" content="关于Serializable(序列化)接口的实现 持久化的简单介绍： “持久化”意味着对象的“生存时间”并不取决于程序是否正在执行——它存在或“生存”于程序的每一次调用之间。通过序列化一个对象，将其写入磁盘，以后在程序再次调用时重新恢复那个对象，就能圆满实现一种“持久”效果。  语言里增加了对象序列化的概念后，可提供对两种主要特性的支持：  远程方法调用（RMI）使本来存在于其他机器的对象可以表现">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-04T15:20:17.843Z">
+<meta property="og:updated_time" content="2019-07-04T15:22:41.655Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test">
+<meta name="twitter:title" content="Serializable">
+<meta name="twitter:description" content="关于Serializable(序列化)接口的实现 持久化的简单介绍： “持久化”意味着对象的“生存时间”并不取决于程序是否正在执行——它存在或“生存”于程序的每一次调用之间。通过序列化一个对象，将其写入磁盘，以后在程序再次调用时重新恢复那个对象，就能圆满实现一种“持久”效果。  语言里增加了对象序列化的概念后，可提供对两种主要特性的支持：  远程方法调用（RMI）使本来存在于其他机器的对象可以表现">
   
     <link rel="alternative" href="/atom.xml" title="Demok blog" type="application/atom+xml">
   
@@ -151,19 +155,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-test" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Serializable" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      test
+      Serializable
     </h1>
   
 
         
-        <a href="/2019/07/04/test/" class="archive-article-date">
+        <a href="/2019/07/04/Serializable/" class="archive-article-date">
   	<time datetime="2019-07-04T15:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
 </a>
         
@@ -171,7 +175,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="关于Serializable-序列化-接口的实现"><a href="#关于Serializable-序列化-接口的实现" class="headerlink" title="关于Serializable(序列化)接口的实现"></a>关于Serializable(序列化)接口的实现</h2><ol>
+<li><p><strong>持久化的简单介绍：</strong></p>
+<p>“持久化”意味着对象的“生存时间”并不取决于程序是否正在执行——它存在或“生存”于程序的每一次调用之间。通过序列化一个对象，将其写入磁盘，以后在程序再次调用时重新恢复那个对象，就能圆满实现一种“持久”效果。</p>
+</li>
+<li><p><strong>语言里增加了对象序列化的概念后，可提供对两种主要特性的支持：</strong></p>
+<ul>
+<li>远程方法调用（RMI）使本来存在于其他机器的对象可以表现出好象就在本地机器上的行为。将消息发给远程对象时，需要通过对象序列化来传输参数和返回值</li>
+<li>使用一个Java Bean 时，它的状态信息通常在设计期间配置好。程序启动以后，这种状态信息必须保存下来，以便程序启动以后恢复；具体工作由对象序列化完成。</li>
+</ul>
+</li>
+<li><p><strong>Serializable的一些说明：</strong></p>
+<ul>
+<li>对象的序列化处理非常简单，只需对象实现了Serializable 接口即可（该接口仅是一个标记，没有方法）</li>
+<li>序列化的对象包括基本数据类型，所有集合类以及其他许多东西，还有Class 对象</li>
+<li>对象序列化不仅保存了对象的“全景图”，而且能追踪对象内包含的所有句柄并保存那些对象；接着又能对每个对象内包含的句柄进行追踪</li>
+<li>使用transient关键字修饰的的变量，在序列化对象的过程中，该属性不会被序列化。</li>
+</ul>
+</li>
+<li><p><strong>序列化的步骤：</strong></p>
+<ul>
+<li>首先要创建某些OutputStream对象：OutputStream outputStream = new FileOutputStream(“output.txt”)</li>
+<li>将其封装到ObjectOutputStream对象内：ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);</li>
+<li>此后只需调用writeObject()即可完成对象的序列化，并将其发送给OutputStream：objectOutputStream.writeObject(Object);</li>
+<li>最后不要忘记关闭资源：objectOutputStream.close(), outputStream .close();</li>
+</ul>
+</li>
+<li><p><strong>反序列化的步骤：</strong></p>
+<ul>
+<li>首先要创建某些OutputStream对象：InputStream inputStream= new FileInputStream(“output.txt”)</li>
+<li>将其封装到ObjectInputStream对象内：ObjectInputStream objectInputStream= new ObjectInputStream(inputStream);</li>
+<li>此后只需调用readObject()即可完成对象的反序列化：objectInputStream.readObject();</li>
+<li>最后不要忘记关闭资源：objectInputStream.close()，inputStream.close();</li>
+</ul>
+</li>
+</ol>
+
       
 
       
@@ -200,6 +239,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">序列化接口</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -250,7 +300,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/04/test/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/04/Serializable/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -390,6 +440,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">序列化接口</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
