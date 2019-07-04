@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Demok blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: my first blogdate: 2019-07-04 16:54:45tags: my name is Demoki wanna go to icelandand i wanna become a hacker too.do you think it that i can do that?">
+  <meta name="description" content="关于Serializable(序列化)接口的实现 持久化的简单介绍： “持久化”意味着对象的“生存时间”并不取决于程序是否正在执行——它存在或“生存”于程序的每一次调用之间。通过序列化一个对象，将其写入磁盘，以后在程序再次调用时重新恢复那个对象，就能圆满实现一种“持久”效果。  语言里增加了对象序列化的概念后，可提供对两种主要特性的支持：  远程方法调用（RMI）使本来存在于其他机器的对象可以表现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Demok blog">
-<meta property="og:url" content="http://yoursite.com/2019/07/04/my-first-blog/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/07/04/Serializable/index.html">
 <meta property="og:site_name" content="Demok blog">
-<meta property="og:description" content="title: my first blogdate: 2019-07-04 16:54:45tags: my name is Demoki wanna go to icelandand i wanna become a hacker too.do you think it that i can do that?">
+<meta property="og:description" content="关于Serializable(序列化)接口的实现 持久化的简单介绍： “持久化”意味着对象的“生存时间”并不取决于程序是否正在执行——它存在或“生存”于程序的每一次调用之间。通过序列化一个对象，将其写入磁盘，以后在程序再次调用时重新恢复那个对象，就能圆满实现一种“持久”效果。  语言里增加了对象序列化的概念后，可提供对两种主要特性的支持：  远程方法调用（RMI）使本来存在于其他机器的对象可以表现">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-04T09:03:50.671Z">
+<meta property="og:updated_time" content="2019-07-04T14:48:13.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Demok blog">
-<meta name="twitter:description" content="title: my first blogdate: 2019-07-04 16:54:45tags: my name is Demoki wanna go to icelandand i wanna become a hacker too.do you think it that i can do that?">
+<meta name="twitter:description" content="关于Serializable(序列化)接口的实现 持久化的简单介绍： “持久化”意味着对象的“生存时间”并不取决于程序是否正在执行——它存在或“生存”于程序的每一次调用之间。通过序列化一个对象，将其写入磁盘，以后在程序再次调用时重新恢复那个对象，就能圆满实现一种“持久”效果。  语言里增加了对象序列化的概念后，可提供对两种主要特性的支持：  远程方法调用（RMI）使本来存在于其他机器的对象可以表现">
   
     <link rel="alternative" href="/atom.xml" title="Demok blog" type="application/atom+xml">
   
@@ -70,7 +70,7 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">常用链接</a>
     			
             
     			
@@ -154,14 +154,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-my-first-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Serializable" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: my first blog<br>date: 2019-07-04 16:54:45<br>tags:</p>
-<p>my name is Demok<br>i wanna go to iceland<br>and i wanna become a hacker too.<br>do you think it that i can do that?</p>
+        <h2 id="关于Serializable-序列化-接口的实现"><a href="#关于Serializable-序列化-接口的实现" class="headerlink" title="关于Serializable(序列化)接口的实现"></a>关于Serializable(序列化)接口的实现</h2><ol>
+<li><p><strong>持久化的简单介绍：</strong></p>
+<p>“持久化”意味着对象的“生存时间”并不取决于程序是否正在执行——它存在或“生存”于程序的每一次调用之间。通过序列化一个对象，将其写入磁盘，以后在程序再次调用时重新恢复那个对象，就能圆满实现一种“持久”效果。</p>
+</li>
+<li><p><strong>语言里增加了对象序列化的概念后，可提供对两种主要特性的支持：</strong></p>
+<ul>
+<li>远程方法调用（RMI）使本来存在于其他机器的对象可以表现出好象就在本地机器上的行为。将消息发给远程对象时，需要通过对象序列化来传输参数和返回值</li>
+<li>使用一个Java Bean 时，它的状态信息通常在设计期间配置好。程序启动以后，这种状态信息必须保存下来，以便程序启动以后恢复；具体工作由对象序列化完成。</li>
+</ul>
+</li>
+<li><p><strong>Serializable的一些说明：</strong></p>
+<ul>
+<li>对象的序列化处理非常简单，只需对象实现了Serializable 接口即可（该接口仅是一个标记，没有方法）</li>
+<li>序列化的对象包括基本数据类型，所有集合类以及其他许多东西，还有Class 对象</li>
+<li>对象序列化不仅保存了对象的“全景图”，而且能追踪对象内包含的所有句柄并保存那些对象；接着又能对每个对象内包含的句柄进行追踪</li>
+<li>使用transient关键字修饰的的变量，在序列化对象的过程中，该属性不会被序列化。</li>
+</ul>
+</li>
+<li><p><strong>序列化的步骤：</strong></p>
+<ul>
+<li>首先要创建某些OutputStream对象：OutputStream outputStream = new FileOutputStream(“output.txt”)</li>
+<li>将其封装到ObjectOutputStream对象内：ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);</li>
+<li>此后只需调用writeObject()即可完成对象的序列化，并将其发送给OutputStream：objectOutputStream.writeObject(Object);</li>
+<li>最后不要忘记关闭资源：objectOutputStream.close(), outputStream .close();</li>
+</ul>
+</li>
+<li><p><strong>反序列化的步骤：</strong></p>
+<ul>
+<li>首先要创建某些OutputStream对象：InputStream inputStream= new FileInputStream(“output.txt”)</li>
+<li>将其封装到ObjectInputStream对象内：ObjectInputStream objectInputStream= new ObjectInputStream(inputStream);</li>
+<li>此后只需调用readObject()即可完成对象的反序列化：objectInputStream.readObject();</li>
+<li>最后不要忘记关闭资源：objectInputStream.close()，inputStream.close();</li>
+</ul>
+</li>
+</ol>
 
       
 
@@ -241,7 +273,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/04/my-first-blog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/04/Serializable/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -358,7 +390,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">常用链接</a></li>
       
         
       
@@ -431,27 +463,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://leetcode-cn.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>领扣</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://www.bilibili.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>B站</a>
             </li>
           
         </ul>
