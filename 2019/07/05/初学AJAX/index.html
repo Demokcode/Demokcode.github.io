@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Demok&#39;s blog</title>
+  <title>初学AJAX | Demok&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Demok&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="什么是AJAX？ 在不重载整个网页的情况下，AJAX通过后台加载数据，并在网页上进行显示。  jQuery load()方法 jQuery load()方法是简单但强大的AJAX方法 load() 方法从服务器加载数据，并把返回的数据放入被选元素中。 语法:$(selector).load(URL,data,callback); 必需的 URL 参数规定您希望加载的 URL。 可选的 data">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初学AJAX">
+<meta property="og:url" content="http://yoursite.com/2019/07/05/初学AJAX/index.html">
 <meta property="og:site_name" content="Demok&#39;s blog">
+<meta property="og:description" content="什么是AJAX？ 在不重载整个网页的情况下，AJAX通过后台加载数据，并在网页上进行显示。  jQuery load()方法 jQuery load()方法是简单但强大的AJAX方法 load() 方法从服务器加载数据，并把返回的数据放入被选元素中。 语法:$(selector).load(URL,data,callback); 必需的 URL 参数规定您希望加载的 URL。 可选的 data">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-05T08:04:27.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Demok&#39;s blog">
+<meta name="twitter:title" content="初学AJAX">
+<meta name="twitter:description" content="什么是AJAX？ 在不重载整个网页的情况下，AJAX通过后台加载数据，并在网页上进行显示。  jQuery load()方法 jQuery load()方法是简单但强大的AJAX方法 load() 方法从服务器加载数据，并把返回的数据放入被选元素中。 语法:$(selector).load(URL,data,callback); 必需的 URL 参数规定您希望加载的 URL。 可选的 data">
   
     <link rel="alternative" href="/atom.xml" title="Demok&#39;s blog" type="application/atom+xml">
   
@@ -150,179 +154,207 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-初学AJAX" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      初学AJAX
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/05/初学AJAX/" class="archive-article-date">
+
+        
+        <a href="/2019/07/05/初学AJAX/" class="archive-article-date">
   	<time datetime="2019-07-05T07:49:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/05/初学AJAX/">初学AJAX</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>什么是AJAX？</p>
+<p>在不重载整个网页的情况下，AJAX通过后台加载数据，并在网页上进行显示。</p>
+</li>
+<li><p>jQuery load()方法</p>
+<p>jQuery load()方法是简单但强大的AJAX方法</p>
+<p>load() 方法从服务器加载数据，并把返回的数据放入被选元素中。</p>
+<p>语法:$(selector).load(URL,data,callback);</p>
+<p>必需的 <em>URL</em> 参数规定您希望加载的 URL。</p>
+<p>可选的 <em>data</em> 参数规定与请求一同发送的查询字符串键/值对集合。</p>
+<p>可选的 <em>callback</em> 参数是 load() 方法完成后所执行的函数名称。</p>
+<p>例:$(“#div1”).load(“demo_test.txt”);</p>
+<p>可选的 callback 参数规定当 load() 方法完成后所要允许的回调函数。回调函数可以设置不同的参数：</p>
+<ul>
+<li><em>responseTxt</em> - 包含调用成功时的结果内容</li>
+<li><em>statusTXT</em> - 包含调用的状态</li>
+<li><em>xhr</em> - 包含 XMLHttpRequest 对象</li>
+</ul>
+</li>
+</ol>
+<p>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> $(<span class="string">"#div1"</span>).load(<span class="string">"demo_test.txt"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">responseTxt,statusTxt,xhr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(statusTxt==<span class="string">"success"</span>)</span><br><span class="line">      alert(<span class="string">"外部内容加载成功！"</span>);</span><br><span class="line">    <span class="keyword">if</span>(statusTxt==<span class="string">"error"</span>)</span><br><span class="line">      alert(<span class="string">"Error: "</span>+xhr.status+<span class="string">": "</span>+xhr.statusText);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<ol start="3">
+<li><p>jQuery $.get()方法</p>
+<p>$.get() 方法通过 HTTP GET 请求从服务器上请求数据。</p>
+<p>语法：$.get(URL,callback);</p>
+<p>必需的 <em>URL</em> 参数规定您希望请求的 URL。</p>
+<p>可选的 <em>callback</em> 参数是请求成功后所执行的函数名。</p>
+<p>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.<span class="keyword">get</span>("demo_test.asp",function(data,status)&#123;</span><br><span class="line">    alert(<span class="string">"Data: "</span> + data + <span class="string">"\nStatus: "</span> + status);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+</li>
+</ol>
+<p>$.get() 的第一个参数是我们希望请求的 URL（”demo_test.asp”）。</p>
+<p>第二个参数是回调函数。第一个回调参数存有被请求页面的内容，第二个回调参数存有请求的状态。</p>
+<ol start="4">
+<li><p>jQuery $.post()方法</p>
+<p>$.post() 方法通过 HTTP POST 请求从服务器上请求数据。</p>
+<p>语法：$.post(URL,data,callback);</p>
+<p>必需的 <em>URL</em> 参数规定您希望请求的 URL。</p>
+<p>可选的 <em>data</em> 参数规定连同请求发送的数据。</p>
+<p>可选的 <em>callback</em> 参数是请求成功后所执行的函数名。</p>
+<p>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.post(<span class="string">"demo_test_post.asp"</span>,</span><br><span class="line">  &#123;</span><br><span class="line">    name:<span class="string">"Donald Duck"</span>,</span><br><span class="line">    city:<span class="string">"Duckburg"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">data,status</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"Data: "</span> + data + <span class="string">"\nStatus: "</span> + status);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>$.post() 的第一个参数是我们希望请求的 URL (“demo_test_post.asp”)。</p>
+<p>然后我们连同请求（name 和 city）一起发送数据。</p>
+<p>“demo_test_post.asp” 中的 ASP 脚本读取这些参数，对它们进行处理，然后返回结果。</p>
+<p>第三个参数是回调函数。第一个回调参数存有被请求页面的内容，而第二个参数存有请求的状态。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>ありがとうございます<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/05/初学AJAX/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/05/spring-IOC-DI/" class="archive-article-date">
-  	<time datetime="2019-07-05T05:19:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/05/spring-IOC-DI/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring IOC DI</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/05/spring-IOC-DI/">spring IOC DI</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/05/ArrayList和LinkedList区别/" class="archive-article-date">
-  	<time datetime="2019-07-05T03:46:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/05/ArrayList和LinkedList区别/">ArrayList和LinkedList区别</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/04/Serializable/" class="archive-article-date">
-  	<time datetime="2019-07-04T15:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/04/Serializable/">Serializable</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">序列化接口</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/04/hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-04T08:20:48.635Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -345,8 +377,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
