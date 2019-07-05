@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>spring IOC DI | Demok&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于spring IOC(控制反转)和DI（依赖注入）的 IoC是什么 ​        Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转了">
+  <meta name="description" content="关于spring IOC(控制反转)和DI（依赖注入）的笔记IoC是什么 ​        Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转">
 <meta name="keywords" content="spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring IOC DI">
 <meta property="og:url" content="http://yoursite.com/2019/07/05/spring-IOC-DI/index.html">
 <meta property="og:site_name" content="Demok&#39;s blog">
-<meta property="og:description" content="关于spring IOC(控制反转)和DI（依赖注入）的 IoC是什么 ​        Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转了">
+<meta property="og:description" content="关于spring IOC(控制反转)和DI（依赖注入）的笔记IoC是什么 ​        Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="d:/iceland/qqBD6EABDB52CEDAB0E5460FBF930196C2/a65f24ee755a491eadcb6dc4480320b6/21378318292.jpeg">
 <meta property="og:image" content="d:/iceland/qqBD6EABDB52CEDAB0E5460FBF930196C2/c64ede34d57c49dab56f001140b8e9ca/suvork5cyii%3D.png">
-<meta property="og:updated_time" content="2019-07-05T05:47:29.148Z">
+<meta property="og:updated_time" content="2019-07-05T05:51:04.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring IOC DI">
-<meta name="twitter:description" content="关于spring IOC(控制反转)和DI（依赖注入）的 IoC是什么 ​        Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转了">
+<meta name="twitter:description" content="关于spring IOC(控制反转)和DI（依赖注入）的笔记IoC是什么 ​        Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转">
 <meta name="twitter:image" content="d:/iceland/qqBD6EABDB52CEDAB0E5460FBF930196C2/a65f24ee755a491eadcb6dc4480320b6/21378318292.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="Demok&#39;s blog" type="application/atom+xml">
@@ -178,8 +178,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="关于spring-IOC-控制反转-和DI（依赖注入）的"><a href="#关于spring-IOC-控制反转-和DI（依赖注入）的" class="headerlink" title="关于spring IOC(控制反转)和DI（依赖注入）的"></a>关于spring IOC(控制反转)和DI（依赖注入）的</h2><ol>
-<li><p><strong>IoC是什么</strong></p>
+        <h2 id="关于spring-IOC-控制反转-和DI（依赖注入）的笔记"><a href="#关于spring-IOC-控制反转-和DI（依赖注入）的笔记" class="headerlink" title="关于spring IOC(控制反转)和DI（依赖注入）的笔记"></a>关于spring IOC(控制反转)和DI（依赖注入）的笔记</h2><p><strong>IoC是什么</strong></p>
 <p>​        <strong>Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。</strong>在Java开发中<u>Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。</u>如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转了”，那我们来深入分析一下：</p>
 <ul>
 <li><p><strong>谁控制谁，控制什么</strong>：<strong>传统Java SE程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而IoC是有专门一个容器来创建这些对象，即由Ioc容器来控制对 象的创建；</strong>谁控制谁？当然是IoC 容器控制了对象；控制什么？那就是主要控制了外部资源获取（不只是对象包括比如文件等）。</p>
@@ -194,12 +193,11 @@
 <li><p><img src="D:/iceland/qqBD6EABDB52CEDAB0E5460FBF930196C2/c64ede34d57c49dab56f001140b8e9ca/suvork5cyii%3D.png" alt="img"></p>
 </li>
 </ul>
-<ol start="2">
-<li><p><strong>IoC能做什么</strong></p>
+<p><strong>IoC能做什么</strong></p>
 <p>​        IoC 不是一种技术，只是一种思想，一个重要的面向对象编程的法则，它能指导我们如何设计出松耦合、更优良的程序。传统应用程序都是由我们在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于测试；有了IoC容器后，把创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象，所以对象与对象之间是 松散耦合，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。</p>
 <p>　　其实<strong>IoC对编程带来的最大改变不是从代码上，而是从思想上，发生了“主从换位”的变化。应用程序原本是老大，要获取什么资源都是主动出击，但是在IoC/DI思想中，应用程序就变成被动的了，被动的等待IoC容器来创建并注入它所需要的资源了。</strong></p>
 <p>　　<strong>IoC很好的体现了面向对象设计法则之一—— 好莱坞法则：“别找我们，我们找你”；即由IoC容器帮对象找相应的依赖对象并注入，而不是由对象主动去找。</strong></p>
-</li>
+<ol>
 <li><p><strong>IoC和DI</strong></p>
 <p>​        DI—Dependency Injection，即“依赖注入”<strong>：</strong>组件之间依赖关系<strong>由容器在运行期决定，形象的说，即</strong>由容器动态的将某个依赖关系注入到组件之中<strong>。</strong>依赖注入的目的并非为软件系统带来更多功能，而是为了提升组件重用的频率，并为系统搭建一个灵活、可扩展的平台。**通过依赖注入机制，我们只需要通过简单的配置，而无需任何代码就可指定目标需要的资源，完成自身的业务逻辑，而不需要关心具体的资源来自何处，由谁实现。</p>
 <p>　　理解DI的关键是：“谁依赖谁，为什么需要依赖，谁注入谁，注入了什么”，那我们来深入分析一下：</p>
@@ -219,15 +217,9 @@
 </ul>
 </li>
 </ol>
-</li>
-</ol>
-<ol start="4">
-<li><p><strong>我对IoC(控制反转)和DI(依赖注入)的理解</strong></p>
-<p>​        在平时的java应用开发中，我们要完成某个业务逻辑需要多个对象的协作完成，在没有spring框架时，我们需要通过new操作符不断实例化对象，创建对象的主动权和创建时机由自己把控，这样创建使得对象间耦合度变高，A对象要通过合作对象B完成某件事，那么A就对B产生了依赖，所以A与B产生了紧密耦合。在使用了spring后，创建对象B的工作是由spring做的，spring创建了对象B后，把它放入容器中，当A对象要使用合作对象B时，spring从容器中取出对象交付使用，A对象无需关注B对象的细节问题，这样便降低了A对象与合作对象B之间的耦合度。</p>
-<p>​        所以说控制反转IOC就是把创建对象的控制权进行转移，以前创建对象的主动权和创建时机是由自己把控的，而现在这种权利转移到第三方。而IOC需要动态的向某个对象提供它所需要的合作对象，这一点是通过DI（依赖注入）来完成的。</p>
-<p>​    </p>
-</li>
-</ol>
+<pre><code>**我对IoC(控制反转)和DI(依赖注入)的理解**</code></pre><p>   ​        在平时的java应用开发中，我们要完成某个业务逻辑需要多个对象的协作完成，在没有spring框架时，我们需要通过new操作符不断实例化对象，创建对象的主动权和创建时机由自己把控，这样创建使得对象间耦合度变高，A对象要通过合作对象B完成某件事，那么A就对B产生了依赖，所以A与B产生了紧密耦合。在使用了spring后，创建对象B的工作是由spring做的，spring创建了对象B后，把它放入容器中，当A对象要使用合作对象B时，spring从容器中取出对象交付使用，A对象无需关注B对象的细节问题，这样便降低了A对象与合作对象B之间的耦合度。</p>
+<p>   ​        所以说控制反转IOC就是把创建对象的控制权进行转移，以前创建对象的主动权和创建时机是由自己把控的，而现在这种权利转移到第三方。而IOC需要动态的向某个对象提供它所需要的合作对象，这一点是通过DI（依赖注入）来完成的。</p>
+<p>   ​    </p>
 
       
 
