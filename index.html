@@ -152,6 +152,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SpringMVC学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/06/SpringMVC学习笔记/">SpringMVC学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/06/SpringMVC学习笔记/" class="archive-article-date">
+  	<time datetime="2019-07-06T06:49:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="为什么要使用SpringMVC？"><a href="#为什么要使用SpringMVC？" class="headerlink" title="为什么要使用SpringMVC？"></a><strong>为什么要使用SpringMVC？</strong></h3><p>很多应用程序的问题在于处理业务数据的对象和显示业务数据的视图之间存在紧密耦合，通常，更新业务对象的命令都是从视图本身发起的，使视图对任何业务对象更改都有高度敏感性。而且，当多个视图依赖于同一个业务对象时是没有灵活性的。</p>
+<p><strong>具体流程</strong></p>
+<ol>
+<li>首先浏览器发送请求——&gt;DispatcherServlet，前端控制器收到请求后自己不进行处理，而是委托给其他的解析器进行处理，作为统一访问点，进行全局的流程控制；</li>
+<li>DispatcherServlet——&gt;HandlerMapping，处理器映射器将会把请求映射为HandlerExecutionChain对象（包含一个Handler处理器对象、多个HandlerInterceptor拦截器）对象；</li>
+<li>DispatcherServlet——&gt;HandlerAdapter，处理器适配器将会把处理器包装为适配器，从而支持多种类型的处理器，即适配器设计模式的应用，从而很容易支持很多类型的处理器；</li>
+<li>HandlerAdapter——&gt;调用处理器相应功能处理方法，并返回一个ModelAndView对象（包含模型数据、逻辑视图名）；</li>
+<li>ModelAndView对象（Model部分是业务对象返回的模型数据，View部分为逻辑视图名）——&gt; ViewResolver， 视图解析器将把逻辑视图名解析为具体的View；</li>
+<li>View——&gt;渲染，View会根据传进来的Model模型数据进行渲染，此处的Model实际是一个Map数据结构</li>
+<li>返回控制权给DispatcherServlet，由DispatcherServlet返回响应给用户，到此一个流程结束。</li>
+</ol>
+<p><strong>HandlerMapping</strong></p>
+<p>处理器映射器将会把请求映射为 HandlerExecutionChain 对象（包含一个 Handler 处理器对象、多个 HandlerInterceptor 拦截器）对象，通过这种策略模式，很容易添加新的映射策略。</p>
+<p>处理器映射器有三种，三种可以共存，相互不影响，分别是BeanNameUrlHandlerMapping、SimpleUrlHandlerMapping和ControllerClassNameHandlerMapping</p>
+<p><strong>HandlerAdapte</strong>r</p>
+<p>处理器适配器有两种，可以共存，分别是SimpleControllerHandlerAdapter和HttpRequestHandlerAdapter。</p>
+<p>SimpleControllerHandlerAdapter<br>SimpleControllerHandlerAdapter是默认的适配器，所有实现了org.springframework.web.servlet.mvc.Controller 接口的处理器都是通过此适配器适配 执行的。</p>
+<p>HttpRequestHandlerAdapter</p>
+<p>该适配器将http请求封装成HttpServletResquest 和HttpServletResponse对象. 所有实现了 org.springframework.web.HttpRequestHandler 接口的处理器都是通过此适配器适配 执行的</p>
+<p><strong>ViewResolver</strong></p>
+<p>视图解析器负责将处理结果生成View视图. 这里介绍两种常用的视图解析器:</p>
+<p>InternalResourceViewResolver</p>
+<p>该视图解析器用于完成对当前Web应用内部资源的封装和跳转. 而对于内部资源的查找规则是, 将ModelAndView中指定的视图名称与视图解析器配置的前缀与后缀想结合, 拼接成一个Web应用内部资源路径. 内部资源路径 = 前缀 + 视图名称 + 后缀.</p>
+<p>BeanNameViewResolver</p>
+<p>InternalResourceViewResolver视图解析器存在一个问题, 就是只可以完成将内部资源封装后的跳转, 无法跳转向外部资源, 如外部网页.BeanNameViewResolver 视图解析器将资源(内部资源和外部资源)封装为bean实例, 然后在 ModelAndView 中通过设置bean实例的id值来指定资源. 在配置文件中可以同时配置多个资源bean.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/06/SpringMVC学习笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-导入bootstrap框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
