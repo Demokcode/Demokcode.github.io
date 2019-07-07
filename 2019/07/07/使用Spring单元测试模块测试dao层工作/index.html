@@ -6,28 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>mybatis逆向工程初探 | Demok&#39;s blog</title>
+  <title>使用Spring单元测试模块测试dao层工作 | Demok&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在maven仓库下在逆向工程jar包搜索mybatis generator    进入mybatis逆向工程官方文档(github搜索mybatis generator)，进入Quick Start Guide，点击XML Configuration File Reference超链接    在项目根目录创建mgb.xml文件   复制示例的全部代码到mgb.xml文件下    在标签下配置数据">
-<meta name="keywords" content="mybatis">
+  <meta name="description" content="推荐Spring的项目就可以使用Spring单元测试，可以自动注入我们需要的组件   在Maven仓库中搜索spring test找到相应jar包    在pom.xml中导入依赖，把内的test改为provided，（junit的也要改为provided）即允许在除src外进行测试。  12345678&amp;lt;!--Spring单元测试--&amp;gt;&amp;lt;!-- https://mvnrepo">
+<meta name="keywords" content="spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mybatis逆向工程初探">
-<meta property="og:url" content="http://yoursite.com/2019/07/06/mybatis逆向工程初探/index.html">
+<meta property="og:title" content="使用Spring单元测试模块测试dao层工作">
+<meta property="og:url" content="http://yoursite.com/2019/07/07/使用Spring单元测试模块测试dao层工作/index.html">
 <meta property="og:site_name" content="Demok&#39;s blog">
-<meta property="og:description" content="在maven仓库下在逆向工程jar包搜索mybatis generator    进入mybatis逆向工程官方文档(github搜索mybatis generator)，进入Quick Start Guide，点击XML Configuration File Reference超链接    在项目根目录创建mgb.xml文件   复制示例的全部代码到mgb.xml文件下    在标签下配置数据">
+<meta property="og:description" content="推荐Spring的项目就可以使用Spring单元测试，可以自动注入我们需要的组件   在Maven仓库中搜索spring test找到相应jar包    在pom.xml中导入依赖，把内的test改为provided，（junit的也要改为provided）即允许在除src外进行测试。  12345678&amp;lt;!--Spring单元测试--&amp;gt;&amp;lt;!-- https://mvnrepo">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/blogpicture/mgb1.png">
-<meta property="og:image" content="http://yoursite.com/blogpicture/mgb2.png">
-<meta property="og:image" content="http://yoursite.com/blogpicture/mgb3.png">
-<meta property="og:image" content="http://yoursite.com/blogpicture/mgb4.png">
-<meta property="og:image" content="http://yoursite.com/blogpicture/mgb5.png">
-<meta property="og:image" content="http://yoursite.com/blogpicture/mgb6.png">
-<meta property="og:image" content="http://yoursite.com/blogpicture/mgb7.png">
-<meta property="og:updated_time" content="2019-07-06T12:53:22.846Z">
+<meta property="og:image" content="http://yoursite.com/blogpicture/test1.png">
+<meta property="og:updated_time" content="2019-07-07T06:54:16.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mybatis逆向工程初探">
-<meta name="twitter:description" content="在maven仓库下在逆向工程jar包搜索mybatis generator    进入mybatis逆向工程官方文档(github搜索mybatis generator)，进入Quick Start Guide，点击XML Configuration File Reference超链接    在项目根目录创建mgb.xml文件   复制示例的全部代码到mgb.xml文件下    在标签下配置数据">
-<meta name="twitter:image" content="http://yoursite.com/blogpicture/mgb1.png">
+<meta name="twitter:title" content="使用Spring单元测试模块测试dao层工作">
+<meta name="twitter:description" content="推荐Spring的项目就可以使用Spring单元测试，可以自动注入我们需要的组件   在Maven仓库中搜索spring test找到相应jar包    在pom.xml中导入依赖，把内的test改为provided，（junit的也要改为provided）即允许在除src外进行测试。  12345678&amp;lt;!--Spring单元测试--&amp;gt;&amp;lt;!-- https://mvnrepo">
+<meta name="twitter:image" content="http://yoursite.com/blogpicture/test1.png">
   
     <link rel="alternative" href="/atom.xml" title="Demok&#39;s blog" type="application/atom+xml">
   
@@ -163,20 +157,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mybatis逆向工程初探" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-使用Spring单元测试模块测试dao层工作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      mybatis逆向工程初探
+      使用Spring单元测试模块测试dao层工作
     </h1>
   
 
         
-        <a href="/2019/07/06/mybatis逆向工程初探/" class="archive-article-date">
-  	<time datetime="2019-07-06T12:08:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
+        <a href="/2019/07/07/使用Spring单元测试模块测试dao层工作/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:24:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
 </a>
         
       </header>
@@ -184,63 +178,39 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>在maven仓库下在逆向工程jar包搜索mybatis generator</li>
-</ul>
-<p><img src="/blogpicture/mgb1.png" alt="mgb1"></p>
-<ul>
-<li>进入mybatis逆向工程官方文档(github搜索mybatis generator)，进入Quick Start Guide，点击XML Configuration File Reference超链接</li>
-</ul>
-<p><img src="/blogpicture/mgb2.png" alt="mgb2"></p>
-<ul>
-<li>在项目根目录创建mgb.xml文件</li>
+<li>推荐Spring的项目就可以使用Spring单元测试，可以自动注入我们需要的组件</li>
 </ul>
 <ul>
-<li>复制示例的全部代码到mgb.xml文件下</li>
+<li>在Maven仓库中搜索spring test找到相应jar包</li>
 </ul>
-<p><img src="/blogpicture/mgb3.png" alt="mgb3"></p>
+<p><img src="/blogpicture/test1.png" alt="test1"></p>
 <ul>
-<li>在<jdbcconnection>标签下配置数据库连接代码</jdbcconnection></li>
+<li>在pom.xml中导入依赖，把<scope>内的test改为provided，（junit的<scope>也要改为provided）即允许在除src外进行测试。</scope></scope></li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">jdbcConnection</span>        </span></span><br><span class="line"><span class="tag">                <span class="attr">driverClass</span>=<span class="string">"com.mysql.jdbc.Driver"</span>        				</span></span><br><span class="line"><span class="tag">                <span class="attr">connectionURL</span>=<span class="string">"jdbc:mysql://localhost:3306/ssm_crud"</span>       </span></span><br><span class="line"><span class="tag">                <span class="attr">userId</span>=<span class="string">"root"</span>        </span></span><br><span class="line"><span class="tag">                <span class="attr">password</span>=<span class="string">"...."</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">jdbcConnection</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Spring单元测试--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-test --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.7.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>在<sqlmapgenerator>标签下指定sql映射文件生成的位置</sqlmapgenerator></li>
+<li>创建在main/test包下创建dao层测试类，并在相应的测试方法上加上Junit的@Test注解</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--指定javaBean生成位置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">javaModelGenerator</span>        </span></span><br><span class="line"><span class="tag">                    <span class="attr">targetPackage</span>=<span class="string">"com.demokcode.crud.bean"</span>        </span></span><br><span class="line"><span class="tag">                    <span class="attr">targetProject</span>=<span class="string">".\src\main\java"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"enableSubPackages"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"trimStrings"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">javaModelGenerator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>在测试类上加上@ContextConfiguration注解指定Spring配置文件的位置，@RunWith表示运行@Test注解的方法时</p>
+<p>调用Spring测试</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(locations = &#123;<span class="string">"classpath:applicationContext.xml"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapperTest</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCRUD</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>在<javaclientgenerator>标签下指定dao接口生成的位置，mapper接口</javaclientgenerator></li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--指定dao接口生成的位置，mapper接口--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">javaClientGenerator</span> <span class="attr">type</span>=<span class="string">"XMLMAPPER"</span>                     </span></span><br><span class="line"><span class="tag">                     <span class="attr">targetPackage</span>=<span class="string">"com.demokcode.crud.dao"</span>                     </span></span><br><span class="line"><span class="tag">                     <span class="attr">targetProject</span>=<span class="string">".\src\main\java"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"enableSubPackages"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">javaClientGenerator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p>现在在测试中所需要的组件即可通过spring的@Autowired直接从ioc容器中获取了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">DepartmentMapper departmentMapper;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">EmployeeMapper employeeMapper;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">SqlSession sqlSession;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写测试数据</p>
+<p>例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//测试部门插入        </span></span><br><span class="line">departmentMapper.insertSelective(<span class="keyword">new</span> Department(<span class="keyword">null</span>,<span class="string">"开发部"</span>));       departmentMapper.insertSelective(<span class="keyword">new</span> Department(<span class="keyword">null</span>,<span class="string">"测试部"</span>));        </span><br><span class="line"><span class="comment">//测试员工插入       </span></span><br><span class="line">employeeMapper.insertSelective(<span class="keyword">new</span> Employee(<span class="keyword">null</span>,<span class="string">"demok"</span>,<span class="string">"m"</span>,<span class="string">"demok@demokcode.com"</span>,<span class="number">1</span>));       employeeMapper.insertSelective(<span class="keyword">new</span> Employee(<span class="keyword">null</span>,<span class="string">"christin"</span>,<span class="string">"f"</span>,<span class="string">"christin@demokcode.com"</span>,<span class="number">1</span>));   <span class="comment">//测试批量插入员工(使用可以执行批量操作的sqlSession)</span></span><br><span class="line">EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;            </span><br><span class="line">    String uid = UUID.randomUUID().toString().substring(<span class="number">0</span>,<span class="number">5</span>)+i;            					         mapper.insertSelective(<span class="keyword">new</span> Employee(<span class="keyword">null</span>,uid,<span class="string">"m"</span>,uid+<span class="string">"@demokcode.com"</span>,<span class="number">1</span>));       </span><br><span class="line">&#125;       </span><br><span class="line">System.out.println(<span class="string">"批量完成"</span>);</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>在<table>标签下指定每个表生成策略</table></li>
+<p>注意：要执行批量操作需要在applicationContext.xml中配置以下批量的sqlSession</p>
+</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">tableName</span>=<span class="string">"tbl_emp"</span> <span class="attr">domainObjectName</span>=<span class="string">"Employee"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">tableName</span>=<span class="string">"tbl_dept"</span> <span class="attr">domainObjectName</span>=<span class="string">"Department"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在官方文档的Running MyBatis Generator菜单下，选择From another Java program with an XML configuration点击</li>
-</ul>
-<p><img src="/blogpicture/mgb4.png" alt="mgb4"></p>
-<ul>
-<li>复制示例代码</li>
-</ul>
-<p><img src="/blogpicture/mgb5.png" alt="mgb5"></p>
-<ul>
-<li>在main/java文件夹的test包下创建MGBTest类,导入相关包，抛出异常，把File对象构造器参数改为我们配置mbg.xml文件</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MBGTest</span> </span>&#123;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException </span>&#123;        </span><br><span class="line">        List&lt;String&gt; warnings = <span class="keyword">new</span> ArrayList&lt;String&gt;();        </span><br><span class="line">        <span class="keyword">boolean</span> overwrite = <span class="keyword">true</span>;        </span><br><span class="line">        File configFile = <span class="keyword">new</span> File(<span class="string">"mbg.xml"</span>);       </span><br><span class="line">        ConfigurationParser cp = <span class="keyword">new</span> ConfigurationParser(warnings);        </span><br><span class="line">        Configuration config = cp.parseConfiguration(configFile);        </span><br><span class="line">        DefaultShellCallback callback = <span class="keyword">new</span> DefaultShellCallback(overwrite);       </span><br><span class="line">        MyBatisGenerator myBatisGenerator = <span class="keyword">new</span> MyBatisGenerator(config, callback, warnings);        		myBatisGenerator.generate(<span class="keyword">null</span>);    </span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>运行MGBTest类，即可生成相应的javaBean mapper配置文件 dao层的mapper接口(自己可进行相应的修改)</li>
-</ul>
-<ul>
-<li><strong>注意：如果要生成无注释的代码，可在官方文档的commentGenerator下,找到suppressAllComments</strong></li>
-</ul>
-<p><strong>可知在suppressAllComments为true时，即可生成无注释代码，故可在context标签内加入如下代码。</strong></p>
-<p><img src="/blogpicture/mgb6.png" alt="mgb6"></p>
-<p><img src="/blogpicture/mgb7.png" alt="mgb7"></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">commentGenerator</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suppressAllComments"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">commentGenerator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置一个可以执行批量的sqlSession--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSession"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionTemplate"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sqlSessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span>    			<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"executorType"</span> <span class="attr">value</span>=<span class="string">"BATCH"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -274,7 +244,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -330,7 +300,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/06/mybatis逆向工程初探/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/07/使用Spring单元测试模块测试dao层工作/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -344,18 +314,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/07/使用Spring单元测试模块测试dao层工作/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用Spring单元测试模块测试dao层工作
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/06/Spring配置文件大致流程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring配置文件大致流程</div>
+    <a href="/2019/07/06/mybatis逆向工程初探/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mybatis逆向工程初探</div>
       <i class="icon-circle-right"></i>
     </a>
   

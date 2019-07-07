@@ -152,6 +152,112 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-使用Spring单元测试模块测试dao层工作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/07/使用Spring单元测试模块测试dao层工作/">使用Spring单元测试模块测试dao层工作</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/07/使用Spring单元测试模块测试dao层工作/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:24:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>推荐Spring的项目就可以使用Spring单元测试，可以自动注入我们需要的组件</li>
+</ul>
+<ul>
+<li>在Maven仓库中搜索spring test找到相应jar包</li>
+</ul>
+<p><img src="/blogpicture/test1.png" alt="test1"></p>
+<ul>
+<li>在pom.xml中导入依赖，把<scope>内的test改为provided，（junit的<scope>也要改为provided）即允许在除src外进行测试。</scope></scope></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Spring单元测试--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-test --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.7.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建在main/test包下创建dao层测试类，并在相应的测试方法上加上Junit的@Test注解</li>
+</ul>
+<ul>
+<li><p>在测试类上加上@ContextConfiguration注解指定Spring配置文件的位置，@RunWith表示运行@Test注解的方法时</p>
+<p>调用Spring测试</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(locations = &#123;<span class="string">"classpath:applicationContext.xml"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapperTest</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCRUD</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>现在在测试中所需要的组件即可通过spring的@Autowired直接从ioc容器中获取了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">DepartmentMapper departmentMapper;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">EmployeeMapper employeeMapper;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">SqlSession sqlSession;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写测试数据</p>
+<p>例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//测试部门插入        </span></span><br><span class="line">departmentMapper.insertSelective(<span class="keyword">new</span> Department(<span class="keyword">null</span>,<span class="string">"开发部"</span>));       departmentMapper.insertSelective(<span class="keyword">new</span> Department(<span class="keyword">null</span>,<span class="string">"测试部"</span>));        </span><br><span class="line"><span class="comment">//测试员工插入       </span></span><br><span class="line">employeeMapper.insertSelective(<span class="keyword">new</span> Employee(<span class="keyword">null</span>,<span class="string">"demok"</span>,<span class="string">"m"</span>,<span class="string">"demok@demokcode.com"</span>,<span class="number">1</span>));       employeeMapper.insertSelective(<span class="keyword">new</span> Employee(<span class="keyword">null</span>,<span class="string">"christin"</span>,<span class="string">"f"</span>,<span class="string">"christin@demokcode.com"</span>,<span class="number">1</span>));   <span class="comment">//测试批量插入员工(使用可以执行批量操作的sqlSession)</span></span><br><span class="line">EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;            </span><br><span class="line">    String uid = UUID.randomUUID().toString().substring(<span class="number">0</span>,<span class="number">5</span>)+i;            					         mapper.insertSelective(<span class="keyword">new</span> Employee(<span class="keyword">null</span>,uid,<span class="string">"m"</span>,uid+<span class="string">"@demokcode.com"</span>,<span class="number">1</span>));       </span><br><span class="line">&#125;       </span><br><span class="line">System.out.println(<span class="string">"批量完成"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意：要执行批量操作需要在applicationContext.xml中配置以下批量的sqlSession</p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置一个可以执行批量的sqlSession--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSession"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionTemplate"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sqlSessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span>    			<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"executorType"</span> <span class="attr">value</span>=<span class="string">"BATCH"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/07/使用Spring单元测试模块测试dao层工作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mybatis逆向工程初探" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
