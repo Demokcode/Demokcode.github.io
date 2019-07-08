@@ -49,7 +49,7 @@
 		  <h1 class="header-author"><a href="/">Demok</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">你必须非常努力&lt;br&gt;&lt;br&gt;才能看起来毫不费力</p>
+		<p class="header-subtitle">努力需要安静</p>
 		
 
 		<nav class="header-menu">
@@ -109,7 +109,7 @@
 			  <h1 class="header-author js-header-author">Demok</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你必须非常努力&lt;br&gt;&lt;br&gt;才能看起来毫不费力<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>努力需要安静<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,42 +181,9 @@
 <p><img src="/blogpicture/page1.png" alt="page1"></p>
 </li>
 </ul>
-<ul>
-<li><p>进入github Page Helper项目查看文档</p>
-<p><img src="/blogpicture/page2.png" alt="page2"></p>
-</li>
-</ul>
-<ul>
-<li><p>根据文档进行相应配置（注意：<plugins>标签必须写在<typealiases>标签后）</typealiases></plugins></p>
-<p><img src="/blogpicture/page3.png" alt="page3"></p>
-</li>
-</ul>
-<ul>
-<li><p>在方法中传入参数(获取页码参数以及创建model对象)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getEmps</span><span class="params">(@RequestParam(value = <span class="string">"pn"</span>,defaultValue = <span class="string">"1"</span>)</span> Integer pn, Model model)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>根据官方文档 使用PageHelper的PageInfo 并在model中设置参数</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//传入页码 以及每页大小</span></span><br><span class="line">PageHelper.startPage(pn,<span class="number">5</span>);</span><br><span class="line"><span class="comment">//startPage后面紧跟的查询就是一个分页查询</span></span><br><span class="line">List&lt;Employee&gt; emps = employeeService.getAll();</span><br><span class="line"><span class="comment">//使用PageInfo包装查询信息 封装了详细的分页信息 构造器第二个参数即连续显示的页数</span></span><br><span class="line">PageInfo page = <span class="keyword">new</span> PageInfo(emps,<span class="number">5</span>);</span><br><span class="line">model.addAttribute(<span class="string">"pageInfo"</span>,page);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>在Spring测试模块中测试分页信息</p>
-<ol>
-<li><p>引入注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@WebAppConfiguration</span>   <span class="comment">//自动装填WebApplicationContext对象</span></span><br><span class="line"><span class="meta">@ContextConfiguration</span>(locations = &#123;<span class="string">"classpath:applicationContext.xml"</span>,<span class="string">"file:\\ssmcurd\\src\\main\\webapp\\WEB-INF\\dispatcherServlet_servlet.xml"</span>&#125;) <span class="comment">//同时引入Spring配置文件和Spring MVC配置文件</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建MVC虚拟请求对象，并在测试前初始化</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//虚拟mvc请求，获取处理结果</span></span><br><span class="line">MockMvc mockMvc;<span class="meta">@Beforepublic</span> <span class="function"><span class="keyword">void</span> <span class="title">initMockMcv</span><span class="params">()</span></span>&#123;    mockMvc = MockMvcBuilders.webAppContextSetup(context).build();&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>模拟请求拿到返回值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testPage</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;    </span><br><span class="line"><span class="comment">//模拟请求拿到返回值    </span></span><br><span class="line">	MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(<span class="string">"/emps"</span>).param(<span class="string">"pn"</span>, <span class="string">"5"</span>))            .andReturn();    </span><br><span class="line"><span class="comment">//请求成功以后，请求域中会有pageInfo,取出进行验证   </span></span><br><span class="line">	MockHttpServletRequest request = result.getRequest();    </span><br><span class="line">	PageInfo pageInfo = (PageInfo) request.getAttribute(<span class="string">"pageInfo"</span>);    </span><br><span class="line">    System.out.println(<span class="string">"当前页码:"</span>+pageInfo.getPageNum());   </span><br><span class="line">    System.out.println(<span class="string">"总页码:"</span>+pageInfo.getPages());   </span><br><span class="line">    System.out.println(<span class="string">"总记录数:"</span>+pageInfo.getTotal());    </span><br><span class="line">    System.out.println(<span class="string">"连续显示的页码:"</span>);   </span><br><span class="line">    <span class="keyword">int</span>[] nums = pageInfo.getNavigatepageNums();    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i:nums)&#123;        </span><br><span class="line">        System.out.println(<span class="string">" "</span>+i);   </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="comment">//获取员工数据    </span></span><br><span class="line">    List&lt;Employee&gt; list = pageInfo.getList();    </span><br><span class="line">    <span class="keyword">for</span>(Employee employee:list)&#123;        				 	       		 	          			System.out.println(<span class="string">"ID:"</span>+employee.getEmpId()+<span class="string">"===&gt;Name:"</span>+employee.getEmpName());    </span><br><span class="line">                            </span><br><span class="line">                                &#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2019/07/08/使用PageHelper插件实现分页并测试/#more">more >></a>
+        
       
 
       
@@ -296,33 +263,9 @@
 <li>在Maven仓库中搜索spring test找到相应jar包</li>
 </ul>
 <p><img src="/blogpicture/test1.png" alt="test1"></p>
-<ul>
-<li>在pom.xml中导入依赖，把<scope>内的test改为provided，（junit的<scope>也要改为provided）即允许在除src外进行测试。</scope></scope></li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Spring单元测试--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-test --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.7.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>创建在main/test包下创建dao层测试类，并在相应的测试方法上加上Junit的@Test注解</li>
-</ul>
-<ul>
-<li><p>在测试类上加上@ContextConfiguration注解指定Spring配置文件的位置，@RunWith表示运行@Test注解的方法时</p>
-<p>调用Spring测试</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(locations = &#123;<span class="string">"classpath:applicationContext.xml"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapperTest</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCRUD</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>现在在测试中所需要的组件即可通过spring的@Autowired直接从ioc容器中获取了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">DepartmentMapper departmentMapper;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">EmployeeMapper employeeMapper;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">SqlSession sqlSession;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编写测试数据</p>
-<p>例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//测试部门插入        </span></span><br><span class="line">departmentMapper.insertSelective(<span class="keyword">new</span> Department(<span class="keyword">null</span>,<span class="string">"开发部"</span>));       departmentMapper.insertSelective(<span class="keyword">new</span> Department(<span class="keyword">null</span>,<span class="string">"测试部"</span>));        </span><br><span class="line"><span class="comment">//测试员工插入       </span></span><br><span class="line">employeeMapper.insertSelective(<span class="keyword">new</span> Employee(<span class="keyword">null</span>,<span class="string">"demok"</span>,<span class="string">"m"</span>,<span class="string">"demok@demokcode.com"</span>,<span class="number">1</span>));       employeeMapper.insertSelective(<span class="keyword">new</span> Employee(<span class="keyword">null</span>,<span class="string">"christin"</span>,<span class="string">"f"</span>,<span class="string">"christin@demokcode.com"</span>,<span class="number">1</span>));   <span class="comment">//测试批量插入员工(使用可以执行批量操作的sqlSession)</span></span><br><span class="line">EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;            </span><br><span class="line">    String uid = UUID.randomUUID().toString().substring(<span class="number">0</span>,<span class="number">5</span>)+i;            					         mapper.insertSelective(<span class="keyword">new</span> Employee(<span class="keyword">null</span>,uid,<span class="string">"m"</span>,uid+<span class="string">"@demokcode.com"</span>,<span class="number">1</span>));       </span><br><span class="line">&#125;       </span><br><span class="line">System.out.println(<span class="string">"批量完成"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意：要执行批量操作需要在applicationContext.xml中配置以下批量的sqlSession</p>
-</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置一个可以执行批量的sqlSession--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSession"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionTemplate"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sqlSessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span>    			<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"executorType"</span> <span class="attr">value</span>=<span class="string">"BATCH"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/07/07/使用Spring单元测试模块测试dao层工作/#more">more >></a>
+        
       
 
       
@@ -402,57 +345,9 @@
 <ul>
 <li>进入mybatis逆向工程官方文档(github搜索mybatis generator)，进入Quick Start Guide，点击XML Configuration File Reference超链接</li>
 </ul>
-<p><img src="/blogpicture/mgb2.png" alt="mgb2"></p>
-<ul>
-<li>在项目根目录创建mgb.xml文件</li>
-</ul>
-<ul>
-<li>复制示例的全部代码到mgb.xml文件下</li>
-</ul>
-<p><img src="/blogpicture/mgb3.png" alt="mgb3"></p>
-<ul>
-<li>在<jdbcconnection>标签下配置数据库连接代码</jdbcconnection></li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">jdbcConnection</span>        </span></span><br><span class="line"><span class="tag">                <span class="attr">driverClass</span>=<span class="string">"com.mysql.jdbc.Driver"</span>        				</span></span><br><span class="line"><span class="tag">                <span class="attr">connectionURL</span>=<span class="string">"jdbc:mysql://localhost:3306/ssm_crud"</span>       </span></span><br><span class="line"><span class="tag">                <span class="attr">userId</span>=<span class="string">"root"</span>        </span></span><br><span class="line"><span class="tag">                <span class="attr">password</span>=<span class="string">"...."</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">jdbcConnection</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在<sqlmapgenerator>标签下指定sql映射文件生成的位置</sqlmapgenerator></li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--指定javaBean生成位置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">javaModelGenerator</span>        </span></span><br><span class="line"><span class="tag">                    <span class="attr">targetPackage</span>=<span class="string">"com.demokcode.crud.bean"</span>        </span></span><br><span class="line"><span class="tag">                    <span class="attr">targetProject</span>=<span class="string">".\src\main\java"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"enableSubPackages"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"trimStrings"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">javaModelGenerator</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在<javaclientgenerator>标签下指定dao接口生成的位置，mapper接口</javaclientgenerator></li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--指定dao接口生成的位置，mapper接口--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">javaClientGenerator</span> <span class="attr">type</span>=<span class="string">"XMLMAPPER"</span>                     </span></span><br><span class="line"><span class="tag">                     <span class="attr">targetPackage</span>=<span class="string">"com.demokcode.crud.dao"</span>                     </span></span><br><span class="line"><span class="tag">                     <span class="attr">targetProject</span>=<span class="string">".\src\main\java"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"enableSubPackages"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">javaClientGenerator</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在<table>标签下指定每个表生成策略</table></li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">tableName</span>=<span class="string">"tbl_emp"</span> <span class="attr">domainObjectName</span>=<span class="string">"Employee"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">tableName</span>=<span class="string">"tbl_dept"</span> <span class="attr">domainObjectName</span>=<span class="string">"Department"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在官方文档的Running MyBatis Generator菜单下，选择From another Java program with an XML configuration点击</li>
-</ul>
-<p><img src="/blogpicture/mgb4.png" alt="mgb4"></p>
-<ul>
-<li>复制示例代码</li>
-</ul>
-<p><img src="/blogpicture/mgb5.png" alt="mgb5"></p>
-<ul>
-<li>在main/java文件夹的test包下创建MGBTest类,导入相关包，抛出异常，把File对象构造器参数改为我们配置mbg.xml文件</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MBGTest</span> </span>&#123;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException </span>&#123;        </span><br><span class="line">        List&lt;String&gt; warnings = <span class="keyword">new</span> ArrayList&lt;String&gt;();        </span><br><span class="line">        <span class="keyword">boolean</span> overwrite = <span class="keyword">true</span>;        </span><br><span class="line">        File configFile = <span class="keyword">new</span> File(<span class="string">"mbg.xml"</span>);       </span><br><span class="line">        ConfigurationParser cp = <span class="keyword">new</span> ConfigurationParser(warnings);        </span><br><span class="line">        Configuration config = cp.parseConfiguration(configFile);        </span><br><span class="line">        DefaultShellCallback callback = <span class="keyword">new</span> DefaultShellCallback(overwrite);       </span><br><span class="line">        MyBatisGenerator myBatisGenerator = <span class="keyword">new</span> MyBatisGenerator(config, callback, warnings);        		myBatisGenerator.generate(<span class="keyword">null</span>);    </span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>运行MGBTest类，即可生成相应的javaBean mapper配置文件 dao层的mapper接口(自己可进行相应的修改)</li>
-</ul>
-<ul>
-<li><strong>注意：如果要生成无注释的代码，可在官方文档的commentGenerator下,找到suppressAllComments</strong></li>
-</ul>
-<p><strong>可知在suppressAllComments为true时，即可生成无注释代码，故可在context标签内加入如下代码。</strong></p>
-<p><img src="/blogpicture/mgb6.png" alt="mgb6"></p>
-<p><img src="/blogpicture/mgb7.png" alt="mgb7"></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">commentGenerator</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suppressAllComments"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">commentGenerator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/07/06/mybatis逆向工程初探/#more">more >></a>
+        
       
 
       
@@ -529,21 +424,9 @@
 <p>spring配置文件的核心点分别为数据源、与mybatis的整合、事务控制</p>
 <p>扫描除@Controller注解外的其他注解</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.demokcode"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span> <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span>&gt;</span>	<span class="tag">&lt;/<span class="name">context:exclude-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>数据源</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"pooledDataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.jdbcUrl&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driverClass&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.user&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>需要数据源文件dbconfig.properties</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jdbc.jdbcUrl=jdbc:mysql://localhost:3306/...</span><br><span class="line">jdbc.driverClass=com.mysql.jdbc.Driver</span><br><span class="line">jdbc.user=root</span><br><span class="line">jdbc.password=....</span><br></pre></td></tr></table></figure>
-
-<p>配置和mybatis的整合</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!--指定mybatis全局配置文件的位置--&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocation"</span> <span class="attr">value</span>=<span class="string">"classpath:mybatis_config.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"pooledDataSource"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!--指定mybatis mapper文件的位置--&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"mapperLocations"</span> <span class="attr">value</span>=<span class="string">"classpath:mapper/*.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--配置扫描器 将mybatis接口的实现加入到ioc容器中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!--扫描所有的dao接口的实现--&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basePackage"</span> <span class="attr">value</span>=<span class="string">"com.demokcode.crud.dao"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>事务控制</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!--切入点表达式--&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"txPoint"</span> <span class="attr">expression</span>=<span class="string">"execution(* com.demokcode.crud.service..*(..))"</span>/&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!--配置事务增强--&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">"txAdvice"</span> <span class="attr">pointcut-ref</span>=<span class="string">"txPoint"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--配置事务增强，事务如何切入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">"txAdvice"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span>        </span><br><span class="line">        <span class="comment">&lt;!--切入点切入的所有方法都是事务方法--&gt;</span>        </span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"*"</span>/&gt;</span>        </span><br><span class="line">        <span class="comment">&lt;!--以get开始的所有方法--&gt;</span>        </span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"get*"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>另外要在web.xml中配置启动spring的容器</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/07/06/Spring配置文件大致流程/#more">more >></a>
+        
       
 
       
@@ -619,29 +502,12 @@
         <h3 id="为什么要使用SpringMVC？"><a href="#为什么要使用SpringMVC？" class="headerlink" title="为什么要使用SpringMVC？"></a><strong>为什么要使用SpringMVC？</strong></h3><p>很多应用程序的问题在于处理业务数据的对象和显示业务数据的视图之间存在紧密耦合，通常，更新业务对象的命令都是从视图本身发起的，使视图对任何业务对象更改都有高度敏感性。而且，当多个视图依赖于同一个业务对象时是没有灵活性的。</p>
 <p><strong>具体流程</strong></p>
 <ol>
-<li>首先浏览器发送请求——&gt;DispatcherServlet，前端控制器收到请求后自己不进行处理，而是委托给其他的解析器进行处理，作为统一访问点，进行全局的流程控制；</li>
-<li>DispatcherServlet——&gt;HandlerMapping，处理器映射器将会把请求映射为HandlerExecutionChain对象（包含一个Handler处理器对象、多个HandlerInterceptor拦截器）对象；</li>
-<li>DispatcherServlet——&gt;HandlerAdapter，处理器适配器将会把处理器包装为适配器，从而支持多种类型的处理器，即适配器设计模式的应用，从而很容易支持很多类型的处理器；</li>
-<li>HandlerAdapter——&gt;调用处理器相应功能处理方法，并返回一个ModelAndView对象（包含模型数据、逻辑视图名）；</li>
-<li>ModelAndView对象（Model部分是业务对象返回的模型数据，View部分为逻辑视图名）——&gt; ViewResolver， 视图解析器将把逻辑视图名解析为具体的View；</li>
-<li>View——&gt;渲染，View会根据传进来的Model模型数据进行渲染，此处的Model实际是一个Map数据结构</li>
-<li>返回控制权给DispatcherServlet，由DispatcherServlet返回响应给用户，到此一个流程结束。</li>
-</ol>
-<p><strong>HandlerMapping</strong></p>
-<p>处理器映射器将会把请求映射为 HandlerExecutionChain 对象（包含一个 Handler 处理器对象、多个 HandlerInterceptor 拦截器）对象，通过这种策略模式，很容易添加新的映射策略。</p>
-<p>处理器映射器有三种，三种可以共存，相互不影响，分别是BeanNameUrlHandlerMapping、SimpleUrlHandlerMapping和ControllerClassNameHandlerMapping</p>
-<p><strong>HandlerAdapte</strong>r</p>
-<p>处理器适配器有两种，可以共存，分别是SimpleControllerHandlerAdapter和HttpRequestHandlerAdapter。</p>
-<p>SimpleControllerHandlerAdapter<br>SimpleControllerHandlerAdapter是默认的适配器，所有实现了org.springframework.web.servlet.mvc.Controller 接口的处理器都是通过此适配器适配 执行的。</p>
-<p>HttpRequestHandlerAdapter</p>
-<p>该适配器将http请求封装成HttpServletResquest 和HttpServletResponse对象. 所有实现了 org.springframework.web.HttpRequestHandler 接口的处理器都是通过此适配器适配 执行的</p>
-<p><strong>ViewResolver</strong></p>
-<p>视图解析器负责将处理结果生成View视图. 这里介绍两种常用的视图解析器:</p>
-<p>InternalResourceViewResolver</p>
-<p>该视图解析器用于完成对当前Web应用内部资源的封装和跳转. 而对于内部资源的查找规则是, 将ModelAndView中指定的视图名称与视图解析器配置的前缀与后缀想结合, 拼接成一个Web应用内部资源路径. 内部资源路径 = 前缀 + 视图名称 + 后缀.</p>
-<p>BeanNameViewResolver</p>
-<p>InternalResourceViewResolver视图解析器存在一个问题, 就是只可以完成将内部资源封装后的跳转, 无法跳转向外部资源, 如外部网页.BeanNameViewResolver 视图解析器将资源(内部资源和外部资源)封装为bean实例, 然后在 ModelAndView 中通过设置bean实例的id值来指定资源. 在配置文件中可以同时配置多个资源bean.</p>
-
+<li><p>首先浏览器发送请求——&gt;DispatcherServlet，前端控制器收到请求后自己不进行处理，而是委托给其他的解析器进行处理，作为统一访问点，进行全局的流程控制；</p>
+</li>
+<li><p>DispatcherServlet——&gt;HandlerMapping，处理器映射器将会把请求映射为HandlerExecutionChain对象（包含一个Handler处理器对象、多个HandlerInterceptor拦截器）对象；</p>
+        
+          <a class="article-more-a" href="/2019/07/06/SpringMVC学习笔记/#more">more >></a>
+        
       
 
       
@@ -801,50 +667,9 @@
 <p>load() 方法从服务器加载数据，并把返回的数据放入被选元素中。</p>
 <p>语法:$(selector).load(URL,data,callback);</p>
 <p>必需的 <em>URL</em> 参数规定您希望加载的 URL。</p>
-<p>可选的 <em>data</em> 参数规定与请求一同发送的查询字符串键/值对集合。</p>
-<p>可选的 <em>callback</em> 参数是 load() 方法完成后所执行的函数名称。</p>
-<p>例:$(“#div1”).load(“demo_test.txt”);</p>
-<p>可选的 callback 参数规定当 load() 方法完成后所要允许的回调函数。回调函数可以设置不同的参数：</p>
-<ul>
-<li><em>responseTxt</em> - 包含调用成功时的结果内容</li>
-<li><em>statusTXT</em> - 包含调用的状态</li>
-<li><em>xhr</em> - 包含 XMLHttpRequest 对象</li>
-</ul>
-</li>
-</ol>
-<p>例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> $(<span class="string">"#div1"</span>).load(<span class="string">"demo_test.txt"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">responseTxt,statusTxt,xhr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(statusTxt==<span class="string">"success"</span>)</span><br><span class="line">      alert(<span class="string">"外部内容加载成功！"</span>);</span><br><span class="line">    <span class="keyword">if</span>(statusTxt==<span class="string">"error"</span>)</span><br><span class="line">      alert(<span class="string">"Error: "</span>+xhr.status+<span class="string">": "</span>+xhr.statusText);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>jQuery $.get()方法</p>
-<p>$.get() 方法通过 HTTP GET 请求从服务器上请求数据。</p>
-<p>语法：$.get(URL,callback);</p>
-<p>必需的 <em>URL</em> 参数规定您希望请求的 URL。</p>
-<p>可选的 <em>callback</em> 参数是请求成功后所执行的函数名。</p>
-<p>例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.<span class="keyword">get</span>("demo_test.asp",function(data,status)&#123;</span><br><span class="line">    alert(<span class="string">"Data: "</span> + data + <span class="string">"\nStatus: "</span> + status);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>$.get() 的第一个参数是我们希望请求的 URL（”demo_test.asp”）。</p>
-<p>第二个参数是回调函数。第一个回调参数存有被请求页面的内容，第二个回调参数存有请求的状态。</p>
-<ol start="4">
-<li><p>jQuery $.post()方法</p>
-<p>$.post() 方法通过 HTTP POST 请求从服务器上请求数据。</p>
-<p>语法：$.post(URL,data,callback);</p>
-<p>必需的 <em>URL</em> 参数规定您希望请求的 URL。</p>
-<p>可选的 <em>data</em> 参数规定连同请求发送的数据。</p>
-<p>可选的 <em>callback</em> 参数是请求成功后所执行的函数名。</p>
-<p>例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.post(<span class="string">"demo_test_post.asp"</span>,</span><br><span class="line">  &#123;</span><br><span class="line">    name:<span class="string">"Donald Duck"</span>,</span><br><span class="line">    city:<span class="string">"Duckburg"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">data,status</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"Data: "</span> + data + <span class="string">"\nStatus: "</span> + status);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>$.post() 的第一个参数是我们希望请求的 URL (“demo_test_post.asp”)。</p>
-<p>然后我们连同请求（name 和 city）一起发送数据。</p>
-<p>“demo_test_post.asp” 中的 ASP 脚本读取这些参数，对它们进行处理，然后返回结果。</p>
-<p>第三个参数是回调函数。第一个回调参数存有被请求页面的内容，而第二个参数存有请求的状态。</p>
-
+        
+          <a class="article-more-a" href="/2019/07/05/初学AJAX/#more">more >></a>
+        
       
 
       
@@ -910,47 +735,9 @@
 <p>​        <strong>Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。</strong>在Java开发中<u>Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。</u>如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转了”，那我们来深入分析一下：</p>
 <ul>
 <li><p><strong>谁控制谁，控制什么</strong>：<strong>传统Java SE程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而IoC是有专门一个容器来创建这些对象，即由Ioc容器来控制对 象的创建；</strong>谁控制谁？当然是IoC 容器控制了对象；控制什么？那就是主要控制了外部资源获取（不只是对象包括比如文件等）。</p>
-</li>
-<li><p><strong>为何是反转，哪些方面反转了</strong>：<strong>有反转就有正转，传统应用程序是由我们自己在对象中主动控制去直接获取依赖对象，也就是正转；而反转则是由容器来帮忙创建及注入依赖对象；为何是反转？</strong>因为由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象，所以是反转；哪些方面反转了？依赖对象的获取被反转了。</p>
-<p>用图例说明一下，传统程序设计如图2-1，都是主动去创建相关对象然后再组合起来：</p>
-</li>
-<li><p><img src="/blogpicture/ioc2.png" alt="ioc2"> </p>
-</li>
-<li><p>当有了IoC/DI的容器后，在客户端类中不再主动去创建这些对象了，如图2-2所示:</p>
-</li>
-<li><p><img src="/blogpicture/ioc1.png" alt="ioc1"></p>
-</li>
-</ul>
-<p><strong>IoC能做什么</strong></p>
-<p>​        IoC 不是一种技术，只是一种思想，一个重要的面向对象编程的法则，它能指导我们如何设计出松耦合、更优良的程序。传统应用程序都是由我们在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于测试；有了IoC容器后，把创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象，所以对象与对象之间是 松散耦合，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。</p>
-<p>　　其实<strong>IoC对编程带来的最大改变不是从代码上，而是从思想上，发生了“主从换位”的变化。应用程序原本是老大，要获取什么资源都是主动出击，但是在IoC/DI思想中，应用程序就变成被动的了，被动的等待IoC容器来创建并注入它所需要的资源了。</strong></p>
-<p>　　<strong>IoC很好的体现了面向对象设计法则之一—— 好莱坞法则：“别找我们，我们找你”；即由IoC容器帮对象找相应的依赖对象并注入，而不是由对象主动去找。</strong></p>
-<ol>
-<li><p><strong>IoC和DI</strong></p>
-<p>​        DI—Dependency Injection，即“依赖注入”<strong>：</strong>组件之间依赖关系<strong>由容器在运行期决定，形象的说，即</strong>由容器动态的将某个依赖关系注入到组件之中<strong>。</strong>依赖注入的目的并非为软件系统带来更多功能，而是为了提升组件重用的频率，并为系统搭建一个灵活、可扩展的平台。**通过依赖注入机制，我们只需要通过简单的配置，而无需任何代码就可指定目标需要的资源，完成自身的业务逻辑，而不需要关心具体的资源来自何处，由谁实现。</p>
-<p>　　理解DI的关键是：“谁依赖谁，为什么需要依赖，谁注入谁，注入了什么”，那我们来深入分析一下：</p>
-<ul>
-<li><p><strong>谁依赖于谁：</strong>当然是<strong>应用程序依赖于IoC容器</strong>；</p>
-</li>
-<li><p><strong>为什么需要依赖：</strong>应用程序需要IoC容器来提供对象需要的外部资源；</p>
-</li>
-<li><p><strong>谁注入谁：</strong>很明显是<strong>IoC容器注入应用程序某个对象，应用程序依赖的对象</strong>；</p>
-</li>
-<li><p><strong>注入了什么：</strong>就是<strong>注入某个对象所需要的外部资源（包括对象、资源、常量数据）</strong>。</p>
-</li>
-<li><p><strong>IoC和DI</strong>由什么<strong>关系</strong>呢？其实它们<strong>是同一个概念的不同角度描述</strong>，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注入”，相对IoC 而言，<strong>“依赖注入”明确描述了“被注入对象依赖IoC容器配置依赖对象”</strong>。</p>
-</li>
-<li><p><strong>所谓IoC，对于spring框架来说，就是由spring来负责控制对象的生命周期和对象间的关系。</strong></p>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code>------
-
-我对IoC(控制反转)和DI(依赖注入)的理解</code></pre><p>   ​        在平时的java应用开发中，我们要完成某个业务逻辑需要多个对象的协作完成，在没有spring框架时，我们需要通过new操作符不断实例化对象，创建对象的主动权和创建时机由自己把控，这样创建使得对象间耦合度变高，A对象要通过合作对象B完成某件事，那么A就对B产生了依赖，所以A与B产生了紧密耦合。在使用了spring后，创建对象B的工作是由spring做的，spring创建了对象B后，把它放入容器中，当A对象要使用合作对象B时，spring从容器中取出对象交付使用，A对象无需关注B对象的细节问题，这样便降低了A对象与合作对象B之间的耦合度。</p>
-<p>   ​        所以说控制反转IOC就是把创建对象的控制权进行转移，以前创建对象的主动权和创建时机是由自己把控的，而现在这种权利转移到第三方。而IOC需要动态的向某个对象提供它所需要的合作对象，这一点是通过DI（依赖注入）来完成的。</p>
-<p>   ​    </p>
-
+        
+          <a class="article-more-a" href="/2019/07/05/spring-IOC-DI/#more">more >></a>
+        
       
 
       
@@ -1100,36 +887,10 @@
 </li>
 <li><p><strong>语言里增加了对象序列化的概念后，可提供对两种主要特性的支持：</strong></p>
 <ul>
-<li>远程方法调用（RMI）使本来存在于其他机器的对象可以表现出好象就在本地机器上的行为。将消息发给远程对象时，需要通过对象序列化来传输参数和返回值</li>
-<li>使用一个Java Bean 时，它的状态信息通常在设计期间配置好。程序启动以后，这种状态信息必须保存下来，以便程序启动以后恢复；具体工作由对象序列化完成。</li>
-</ul>
-</li>
-<li><p><strong>Serializable的一些说明：</strong></p>
-<ul>
-<li>对象的序列化处理非常简单，只需对象实现了Serializable 接口即可（该接口仅是一个标记，没有方法）</li>
-<li>序列化的对象包括基本数据类型，所有集合类以及其他许多东西，还有Class 对象</li>
-<li>对象序列化不仅保存了对象的“全景图”，而且能追踪对象内包含的所有句柄并保存那些对象；接着又能对每个对象内包含的句柄进行追踪</li>
-<li>使用transient关键字修饰的的变量，在序列化对象的过程中，该属性不会被序列化。</li>
-</ul>
-</li>
-<li><p><strong>序列化的步骤：</strong></p>
-<ul>
-<li>首先要创建某些OutputStream对象：OutputStream outputStream = new FileOutputStream(“output.txt”)</li>
-<li>将其封装到ObjectOutputStream对象内：ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);</li>
-<li>此后只需调用writeObject()即可完成对象的序列化，并将其发送给OutputStream：objectOutputStream.writeObject(Object);</li>
-<li>最后不要忘记关闭资源：objectOutputStream.close(), outputStream .close();</li>
-</ul>
-</li>
-<li><p><strong>反序列化的步骤：</strong></p>
-<ul>
-<li>首先要创建某些OutputStream对象：InputStream inputStream= new FileInputStream(“output.txt”)</li>
-<li>将其封装到ObjectInputStream对象内：ObjectInputStream objectInputStream= new ObjectInputStream(inputStream);</li>
-<li>此后只需调用readObject()即可完成对象的反序列化：objectInputStream.readObject();</li>
-<li>最后不要忘记关闭资源：objectInputStream.close()，inputStream.close();</li>
-</ul>
-</li>
-</ol>
-
+<li><p>远程方法调用（RMI）使本来存在于其他机器的对象可以表现出好象就在本地机器上的行为。将消息发给远程对象时，需要通过对象序列化来传输参数和返回值</p>
+        
+          <a class="article-more-a" href="/2019/07/04/Serializable/#more">more >></a>
+        
       
 
       
@@ -1182,10 +943,6 @@
 
 
   
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -1279,11 +1036,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color1">序列化接口</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">序列化接口</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">

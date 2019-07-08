@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Demok&#39;s blog">
 <meta property="og:description" content="spring配置文件(一般为applicationContext.xml)，主要配置与业务逻辑相关 spring配置文件的核心点分别为数据源、与mybatis的整合、事务控制 扫描除@Controller注解外的其他注解 123&amp;lt;context:component-scan base-package=&quot;com.demokcode&quot;&amp;gt;        &amp;lt;context:exclude">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-06T10:34:14.301Z">
+<meta property="og:updated_time" content="2019-07-08T12:37:12.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring配置文件大致流程">
 <meta name="twitter:description" content="spring配置文件(一般为applicationContext.xml)，主要配置与业务逻辑相关 spring配置文件的核心点分别为数据源、与mybatis的整合、事务控制 扫描除@Controller注解外的其他注解 123&amp;lt;context:component-scan base-package=&quot;com.demokcode&quot;&amp;gt;        &amp;lt;context:exclude">
@@ -54,7 +54,7 @@
 		  <h1 class="header-author"><a href="/">Demok</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">你必须非常努力&lt;br&gt;&lt;br&gt;才能看起来毫不费力</p>
+		<p class="header-subtitle">努力需要安静</p>
 		
 
 		<nav class="header-menu">
@@ -114,7 +114,7 @@
 			  <h1 class="header-author js-header-author">Demok</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你必须非常努力&lt;br&gt;&lt;br&gt;才能看起来毫不费力<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>努力需要安静<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -183,6 +183,8 @@
 <p>spring配置文件的核心点分别为数据源、与mybatis的整合、事务控制</p>
 <p>扫描除@Controller注解外的其他注解</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.demokcode"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span> <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span>&gt;</span>	<span class="tag">&lt;/<span class="name">context:exclude-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <p>数据源</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"pooledDataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.jdbcUrl&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driverClass&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.user&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -438,11 +440,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color1">序列化接口</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">序列化接口</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
