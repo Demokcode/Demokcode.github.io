@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Demok&#39;s blog</title>
+  <title>初探TCP/IP协议 | Demok&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Demok&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="TCP/IP协议的基本框架     TCP/IP协议不是计算机网络的全部，但TCP/IP协议涵盖了OSI参考模型的第三层、第四层，即网络层、传输层。 TCP/IP也不是只有TCP+IP这两种协议，它是协议栈的统称，至少它还包括ARP，ICMP，IGMP，UDP，以及让域名访问称为可能的DNS(把域名解析成IP地址)，以及电脑、手机可以自动获取IP地址的DHCP。当然还有形形色色的应用层协议如HT">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探TCP&#x2F;IP协议">
+<meta property="og:url" content="http://yoursite.com/2019/07/25/初探TCP-IP协议/index.html">
 <meta property="og:site_name" content="Demok&#39;s blog">
+<meta property="og:description" content="TCP/IP协议的基本框架     TCP/IP协议不是计算机网络的全部，但TCP/IP协议涵盖了OSI参考模型的第三层、第四层，即网络层、传输层。 TCP/IP也不是只有TCP+IP这两种协议，它是协议栈的统称，至少它还包括ARP，ICMP，IGMP，UDP，以及让域名访问称为可能的DNS(把域名解析成IP地址)，以及电脑、手机可以自动获取IP地址的DHCP。当然还有形形色色的应用层协议如HT">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/blogpicture/net1.png">
+<meta property="og:updated_time" content="2019-07-25T13:15:16.802Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Demok&#39;s blog">
+<meta name="twitter:title" content="初探TCP&#x2F;IP协议">
+<meta name="twitter:description" content="TCP/IP协议的基本框架     TCP/IP协议不是计算机网络的全部，但TCP/IP协议涵盖了OSI参考模型的第三层、第四层，即网络层、传输层。 TCP/IP也不是只有TCP+IP这两种协议，它是协议栈的统称，至少它还包括ARP，ICMP，IGMP，UDP，以及让域名访问称为可能的DNS(把域名解析成IP地址)，以及电脑、手机可以自动获取IP地址的DHCP。当然还有形形色色的应用层协议如HT">
+<meta name="twitter:image" content="http://yoursite.com/blogpicture/net1.png">
   
     <link rel="alternative" href="/atom.xml" title="Demok&#39;s blog" type="application/atom+xml">
   
@@ -154,36 +161,87 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-初探TCP-IP协议" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/25/初探TCP-IP协议/" class="archive-article-date">
-  	<time datetime="2019-07-25T09:04:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/25/初探TCP-IP协议/">初探TCP/IP协议</a>
+    <h1 class="article-title" itemprop="name">
+      初探TCP/IP协议
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/25/初探TCP-IP协议/" class="archive-article-date">
+  	<time datetime="2019-07-25T09:04:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>TCP/IP协议的基本框架</p>
+<p><img src="/blogpicture/net1.png" alt="net1"></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>TCP/IP协议不是计算机网络的全部，但TCP/IP协议涵盖了OSI参考模型的第三层、第四层，即网络层、传输层。</p>
+<p>TCP/IP也不是只有TCP+IP这两种协议，它是协议栈的统称，至少它还包括ARP，ICMP，IGMP，UDP，以及让域名访问称为可能的DNS(把域名解析成IP地址)，以及电脑、手机可以自动获取IP地址的DHCP。当然还有形形色色的应用层协议如HTTP/SMTP/FTP等。</p>
+</li>
+</ol>
+<p>   IP协议</p>
+<p>   通过前面的介绍我们知道，MAC地址只与厂商有关，与所处的网络无关，所以无法通过MAC地址来判断两台主机是否属于同一个子网。</p>
+<p>   因此，网络层引入了IP协议，制定了一套新地址，使得我们能够区分两台主机是否同属一个网络，这套地址就是网络地址，也就是所谓的<strong>IP地址。</strong></p>
+   <a id="more"></a>
+
+<p>   IP地址目前有两个版本，分别是<strong>IPv4</strong>和<strong>IPv6</strong>，IPv4是一个32位的地址，常采用4个十进制数字表示。IP协议将这个32位的地址分为两部分，前面部分代表网络地址，后面部分表示该主机在局域网中的地址。由于各类地址的分法不尽相同，以C类地址<strong>192.168.24.1</strong>为例<strong>，</strong>其中前24位就是网络地址，后8位就是主机地址。因此， <strong>如果两个IP地址在同一个子网内，则网络地址一定相同。</strong>为了判断IP地址中的网络地址，IP协议还引入了<strong>子网掩码，</strong> IP地址和子网掩码通过<strong>按位与</strong>运算后就可以得到网络地址。</p>
+<p>   由于发送者和接收者的IP地址是已知的(应用层的协议会传入)， 因此我们只要通过子网掩码对两个IP地址进行AND运算后就能够判断双方是否在同一个子网了。</p>
+<p>   路由协议</p>
+<p>   通过ARP协议的工作原理可以发现，<strong>ARP的MAC寻址还是局限在同一个子网中</strong>，因此网络层引入了路由协议，首先通过IP协议来判断两台主机是否在同一个子网中，如果在同一个子网，就通过ARP协议查询对应的MAC地址，然后以广播的形式向该子网内的主机发送数据包；如果不在同一个子网，以太网会将该数据包转发给本子网的<strong>网关</strong>进行路由。网关是互联网上子网与子网之间的桥梁，所以网关会进行多次转发，最终将该数据包转发到目标IP所在的子网中，然后再通过ARP获取目标机MAC，最终也是通过广播形式将数据包发送给接收方。</p>
+<p>   而完成这个路由协议的物理设备就是<strong>路由器，</strong>在错综复杂的网络世界里，路由器扮演者<strong>交通枢纽</strong>的角色，它会根据信道情况，选择并设定路由，以最佳路径来转发数据包。</p>
+<p>   APR协议</p>
+<p>   即地址解析协议，是根据<strong>IP地址</strong>获取<strong>MAC地址</strong>的一个网络层协议。其工作原理如下：</p>
+<p>   ARP首先会发起一个请求数据包，数据包的首部包含了目标主机的IP地址，然后这个数据包会在链路层进行再次包装，生成<strong>以太网数据包，</strong>最终由以太网广播给子网内的所有主机，每一台主机都会接收到这个数据包，并取出标头里的IP地址，然后和自己的IP地址进行比较，如果相同就返回自己的MAC地址，如果不同就丢弃该数据包。ARP接收返回消息，以此确定目标机的MAC地址；与此同时，ARP还会将返回的MAC地址与对应的IP地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。cmd输入  arp -a 就可以查询本机缓存的ARP数据。</p>
+<ol start="3">
+<li><ul>
+<li><strong>链路层</strong>：对0和1进行分组，定义数据帧，确认主机的物理地址，传输数据</li>
+<li><strong>网络层</strong>：定义IP地址，确认主机所在的网络位置，并通过IP进行MAC寻址，对外网数据包进行路由转发</li>
+<li><strong>传输层</strong>：定义端口，确认主机上应用程序的身份，并将数据包交给对应的应用程序</li>
+<li><strong>应用层</strong>：定义数据格式，并按照对应的格式解读数据</li>
+</ul>
+</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>ありがとうございます<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -195,364 +253,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/25/初探TCP-IP协议/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/17/Linux系统目录结构/" class="archive-article-date">
-  	<time datetime="2019-07-17T04:40:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/17/Linux系统目录结构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux系统目录结构</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/17/Linux系统目录结构/">Linux系统目录结构</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/09/通过ajax请求json数据并显示-jquery-DOM方法/" class="archive-article-date">
-  	<time datetime="2019-07-09T14:25:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/09/通过ajax请求json数据并显示-jquery-DOM方法/">通过ajax请求json数据并显示(jquery DOM方法)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/08/使用PageHelper插件实现分页并测试/" class="archive-article-date">
-  	<time datetime="2019-07-08T09:28:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/08/使用PageHelper插件实现分页并测试/">使用PageHelper插件实现分页并测试</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">plugins</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/07/使用Spring单元测试模块测试dao层工作/" class="archive-article-date">
-  	<time datetime="2019-07-07T06:24:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/07/使用Spring单元测试模块测试dao层工作/">使用Spring单元测试模块测试dao层工作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/06/mybatis逆向工程初探/" class="archive-article-date">
-  	<time datetime="2019-07-06T12:08:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/06/mybatis逆向工程初探/">mybatis逆向工程初探</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/06/Spring配置文件大致流程/" class="archive-article-date">
-  	<time datetime="2019-07-06T08:31:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/06/Spring配置文件大致流程/">Spring配置文件大致流程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/06/SpringMVC学习笔记/" class="archive-article-date">
-  	<time datetime="2019-07-06T06:49:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/06/SpringMVC学习笔记/">SpringMVC学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/05/导入bootstrap框架/" class="archive-article-date">
-  	<time datetime="2019-07-05T14:51:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/05/导入bootstrap框架/">导入bootstrap框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/05/初学AJAX/" class="archive-article-date">
-  	<time datetime="2019-07-05T07:49:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/05/初学AJAX/">初学AJAX</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -576,8 +375,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -156,6 +156,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-初探TCP-IP协议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/25/初探TCP-IP协议/">初探TCP/IP协议</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/25/初探TCP-IP协议/" class="archive-article-date">
+  	<time datetime="2019-07-25T09:04:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>TCP/IP协议的基本框架</p>
+<p><img src="/blogpicture/net1.png" alt="net1"></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>TCP/IP协议不是计算机网络的全部，但TCP/IP协议涵盖了OSI参考模型的第三层、第四层，即网络层、传输层。</p>
+<p>TCP/IP也不是只有TCP+IP这两种协议，它是协议栈的统称，至少它还包括ARP，ICMP，IGMP，UDP，以及让域名访问称为可能的DNS(把域名解析成IP地址)，以及电脑、手机可以自动获取IP地址的DHCP。当然还有形形色色的应用层协议如HTTP/SMTP/FTP等。</p>
+</li>
+</ol>
+<p>   IP协议</p>
+<p>   通过前面的介绍我们知道，MAC地址只与厂商有关，与所处的网络无关，所以无法通过MAC地址来判断两台主机是否属于同一个子网。</p>
+<p>   因此，网络层引入了IP协议，制定了一套新地址，使得我们能够区分两台主机是否同属一个网络，这套地址就是网络地址，也就是所谓的<strong>IP地址。</strong></p>
+        
+          <a class="article-more-a" href="/2019/07/25/初探TCP-IP协议/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/25/初探TCP-IP协议/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux系统目录结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -903,85 +991,6 @@
 
 
   
-    <article id="post-spring-IOC-DI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/05/spring-IOC-DI/">spring IOC DI</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/05/spring-IOC-DI/" class="archive-article-date">
-  	<time datetime="2019-07-05T05:19:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于spring-IOC-控制反转-和DI（依赖注入）的笔记"><a href="#关于spring-IOC-控制反转-和DI（依赖注入）的笔记" class="headerlink" title="关于spring IOC(控制反转)和DI（依赖注入）的笔记"></a>关于spring IOC(控制反转)和DI（依赖注入）的笔记</h2><p><strong>IoC是什么</strong></p>
-<p>​        <strong>Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。</strong>在Java开发中<u>Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。</u>如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转了”，那我们来深入分析一下：</p>
-<ul>
-<li><p><strong>谁控制谁，控制什么</strong>：<strong>传统Java SE程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而IoC是有专门一个容器来创建这些对象，即由Ioc容器来控制对 象的创建；</strong>谁控制谁？当然是IoC 容器控制了对象；控制什么？那就是主要控制了外部资源获取（不只是对象包括比如文件等）。</p>
-        
-          <a class="article-more-a" href="/2019/07/05/spring-IOC-DI/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/05/spring-IOC-DI/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1087,6 +1096,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">序列化接口</a>
               </li>
              
@@ -1095,11 +1108,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>
