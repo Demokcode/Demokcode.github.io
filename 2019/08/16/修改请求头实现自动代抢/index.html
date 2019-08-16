@@ -6,20 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>通过ajax请求json数据并显示(jquery DOM方法) | Demok&#39;s blog</title>
+  <title>修改请求头实现自动代抢 | Demok&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="页面加载完成后直接发送ajax请求    123456789101112$(function () &amp;#123;        $.ajax(&amp;#123;                url: &quot;$&amp;#123;APP_PATH&amp;#125;/emps&quot;,                data: &quot;pn=1&quot;,               type: &quot;get&quot;,">
-<meta name="keywords" content="前端">
+  <meta name="description" content="最近想入一款手办，但一直抢不到货，官网上现货不通知，就算开了网页监控脚本，人也不是每时每刻在电脑前，所以想靠脚本自动抢入购物车。 首先进入网站，找到现在有货的货源，打开浏览器开发者工具，发现加入购物车是一个get请求。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过ajax请求json数据并显示(jquery DOM方法)">
-<meta property="og:url" content="http://yoursite.com/2019/07/09/通过ajax请求json数据并显示-jquery-DOM方法/index.html">
+<meta property="og:title" content="修改请求头实现自动代抢">
+<meta property="og:url" content="http://yoursite.com/2019/08/16/修改请求头实现自动代抢/index.html">
 <meta property="og:site_name" content="Demok&#39;s blog">
-<meta property="og:description" content="页面加载完成后直接发送ajax请求    123456789101112$(function () &amp;#123;        $.ajax(&amp;#123;                url: &quot;$&amp;#123;APP_PATH&amp;#125;/emps&quot;,                data: &quot;pn=1&quot;,               type: &quot;get&quot;,">
+<meta property="og:description" content="最近想入一款手办，但一直抢不到货，官网上现货不通知，就算开了网页监控脚本，人也不是每时每刻在电脑前，所以想靠脚本自动抢入购物车。 首先进入网站，找到现在有货的货源，打开浏览器开发者工具，发现加入购物车是一个get请求。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-09T14:41:04.792Z">
+<meta property="og:image" content="http://yoursite.com/blogpicture/s1.png">
+<meta property="og:image" content="http://yoursite.com/blogpicture/s2.png">
+<meta property="og:image" content="http://yoursite.com/blogpicture/s3.png">
+<meta property="og:image" content="http://yoursite.com/blogpicture/s4.png">
+<meta property="og:image" content="http://yoursite.com/blogpicture/s5.png">
+<meta property="og:image" content="http://yoursite.com/blogpicture/s6.png">
+<meta property="og:updated_time" content="2019-08-16T11:21:42.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通过ajax请求json数据并显示(jquery DOM方法)">
-<meta name="twitter:description" content="页面加载完成后直接发送ajax请求    123456789101112$(function () &amp;#123;        $.ajax(&amp;#123;                url: &quot;$&amp;#123;APP_PATH&amp;#125;/emps&quot;,                data: &quot;pn=1&quot;,               type: &quot;get&quot;,">
+<meta name="twitter:title" content="修改请求头实现自动代抢">
+<meta name="twitter:description" content="最近想入一款手办，但一直抢不到货，官网上现货不通知，就算开了网页监控脚本，人也不是每时每刻在电脑前，所以想靠脚本自动抢入购物车。 首先进入网站，找到现在有货的货源，打开浏览器开发者工具，发现加入购物车是一个get请求。">
+<meta name="twitter:image" content="http://yoursite.com/blogpicture/s1.png">
   
     <link rel="alternative" href="/atom.xml" title="Demok&#39;s blog" type="application/atom+xml">
   
@@ -159,40 +165,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-通过ajax请求json数据并显示-jquery-DOM方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-修改请求头实现自动代抢" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      通过ajax请求json数据并显示(jquery DOM方法)
+      修改请求头实现自动代抢
     </h1>
   
 
         
-        <a href="/2019/07/09/通过ajax请求json数据并显示-jquery-DOM方法/" class="archive-article-date">
-  	<time datetime="2019-07-09T14:25:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
+        <a href="/2019/08/16/修改请求头实现自动代抢/" class="archive-article-date">
+  	<time datetime="2019-08-16T09:40:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>页面加载完成后直接发送ajax请求</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;    </span><br><span class="line">    $.ajax(&#123;        </span><br><span class="line">        url: <span class="string">"$&#123;APP_PATH&#125;/emps"</span>,        </span><br><span class="line">        data: <span class="string">"pn=1"</span>,       </span><br><span class="line">        type: <span class="string">"get"</span>,        </span><br><span class="line">        success: <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;                      </span><br><span class="line">            <span class="comment">//1.解析并显示员工信息            </span></span><br><span class="line">            build_emps_table(result);            </span><br><span class="line">            <span class="comment">//2.解析并显示分页信息        </span></span><br><span class="line">        &#125;    </span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
+        <p>最近想入一款手办，但一直抢不到货，官网上现货不通知，就算开了网页监控脚本，人也不是每时每刻在电脑前，所以想靠脚本自动抢入购物车。</p>
+<p>首先进入网站，找到现在有货的货源，打开浏览器开发者工具，发现加入购物车是一个get请求。</p>
 <a id="more"></a>
 
-<ul>
-<li><p>在相应位置设置选择器ID</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-hover"</span> <span class="attr">id</span>=<span class="string">"emps_table"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过jquery的$.each方法遍历，使用DOM拼接字符串，并放入相应选择器中</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">build_emps_table</span>(<span class="params">result</span>) </span>&#123;    </span><br><span class="line">    <span class="keyword">var</span> emps = result.extend.pageInfo.list;    </span><br><span class="line">    $.each(emps, <span class="function"><span class="keyword">function</span> (<span class="params">index, item</span>) </span>&#123;        </span><br><span class="line">        <span class="keyword">var</span> empIdTd = $(<span class="string">"&lt;td&gt;&lt;/td&gt;"</span>).append(item.empId);        </span><br><span class="line">        <span class="keyword">var</span> empNameTd = $(<span class="string">"&lt;td&gt;&lt;/td&gt;"</span>).append(item.empName);        </span><br><span class="line">        <span class="keyword">var</span> genderTd = $(<span class="string">"&lt;td&gt;&lt;/td&gt;"</span>).append(item.gender==<span class="string">"m"</span>?<span class="string">"男"</span>:<span class="string">"女"</span>);        </span><br><span class="line">        <span class="keyword">var</span> emailTd = $(<span class="string">"&lt;td&gt;&lt;/td&gt;"</span>).append(item.email);       </span><br><span class="line">        <span class="keyword">var</span> deptNameTd = $(<span class="string">"&lt;td&gt;&lt;/td&gt;"</span>).append(item.department.deptName);       </span><br><span class="line">        <span class="keyword">var</span> editBtn = $(<span class="string">"&lt;button&gt;&lt;/button&gt;"</span>).addClass(<span class="string">"btn btn-primary btn-sm"</span>).append($(<span class="string">"&lt;span&gt;&lt;/span&gt;"</span>).addClass(<span class="string">"glyphicon glyphicon-pencil"</span>)).append(<span class="string">"编辑"</span>);        </span><br><span class="line">        <span class="keyword">var</span> delBtn = $(<span class="string">"&lt;button&gt;&lt;/button&gt;"</span>).addClass(<span class="string">"btn btn-danger btn-sm"</span>).append($(<span class="string">"&lt;span&gt;&lt;/span&gt;"</span>).addClass(<span class="string">"glyphicon glyphicon-trash"</span>)).append(<span class="string">"删除"</span>);       </span><br><span class="line">        <span class="keyword">var</span> btnTd = $(<span class="string">"&lt;td&gt;&lt;/td&gt;"</span>).append(editBtn).append(<span class="string">" "</span>).append(delBtn);              </span><br><span class="line">        $(<span class="string">"&lt;tr&lt;/tr&gt;"</span>).append(empIdTd).append(empNameTd).append(genderTd).append(emailTd).append(deptNameTd).append(btnTd).appendTo(<span class="string">"#emps_table tbody"</span>);    </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
+<p><img src="/blogpicture/s1.png" alt="s1"></p>
+<p>所以我们可以自己编写一个请求头，设置时间间隔，不断的向目标服务器发送请求即可，所以现在需要目标URL、发送的参数、cookie，编写成请求头发送即可。懒癌患者就懒得手动编写了，所以去github下载了一个小脚本，如图，只要输入目标的相应参数，即可简单发送请求。</p>
+<p><img src="/blogpicture/s2.png" alt="s2"></p>
+<p>使用浏览器自带的开发者工具也可以分析网站的请求头，但为了方便，我使用了抓包器，抓取结果如下。</p>
+<p><img src="/blogpicture/s3.png" alt="s3"></p>
+<p>从抓取结果中能直接拿到cookie，并且我们发现目标URL发送请求时已经带了参数，所以FromDate就不用填了。填入参数后点测试，结果如下</p>
+<p><img src="/blogpicture/s4.png" alt="s4"></p>
+<p>根据显示结果可以知道测试成功了，现在进入要抢购现货的页面，因为此时没有货源，所以不能通过抓包获取参数，此时需要我们去分析之前请求头所带的参数，quantity应该是选购的数量，rnd我发了两遍请求，发现只是一个随机码所以可以不用管他，主要是itemid和goodid，现在检查加入购物车的按钮元素（如图），发现按钮元素中已经包含了itemid和goodid。</p>
+<p><img src="/blogpicture/s5.png" alt="s5"></p>
+<p>此时将目标URL中的参数修改成目标货物的对应参数，点击开始，效果如下，出现超过库存字样，所以应该是成功发送请求了。从github上下的脚本有定时功能，现在就可以挂着让脚本自动抢手办了。</p>
+<p><img src="/blogpicture/s6.png" alt="s6"></p>
+<p>！！注意：如果时间间隔过短，网站会把频繁访问的IP封禁（重启光猫即可换IP解禁），解决办法是调大时间间隔或者使用IP代理（要付费但可以快速抢），另外如果要蹲新货的现货上架，可以使用网页内容监控脚本（例如OpenWebMonitor，会有邮件提示），得到消息后立马去购买，这样就不用天天开着脚本抢货了。</p>
 
       
 
@@ -222,17 +230,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -283,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/09/通过ajax请求json数据并显示-jquery-DOM方法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/16/修改请求头实现自动代抢/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -297,18 +294,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/17/Linux系统目录结构/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux系统目录结构
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/08/使用PageHelper插件实现分页并测试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用PageHelper插件实现分页并测试</div>
+    <a href="/2019/07/25/初探TCP-IP协议/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">初探TCP/IP协议</div>
       <i class="icon-circle-right"></i>
     </a>
   
