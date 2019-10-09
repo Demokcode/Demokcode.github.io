@@ -156,6 +156,169 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-日语た型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/09/日语た型/">日语た型</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/09/日语た型/" class="archive-article-date">
+  	<time datetime="2019-10-09T14:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>动词的た形和动词的て形的变法是一样的。只是把后面结的て变成だ。<br>1、五段动词<br>a、以う、つ、る结尾的动词发生促音变。 例如：言うー言った 持つー持った 入るー入った<br>b、以ぬ、む、ぶ结尾的动词发生拨音变。 例如：死ぬー死んだ 読むー読んだ 游ぶー游んだ<br>c、以く、ぐ结尾的动词发生い音变。这里注意，以く结尾的动词后面加た，以ぐ结尾的动词后面加だ。 例如：书くー书いた 急ぐー急いだ<br>d、以す结尾的动词发生し音变。     例如：话すー话した<br>e、行く是特变，原本根据规则，行く应该变成行いた，但是要注意，行く不是变成行いた，而是行った，这是一个特变，要特别记住。<br>2、一段动词：去る加た。               例如：いるーいた 食べるー食べた 落ちるー落ちた<br>3、サ变动词：する变し加た       例如：するーした 心配するー心配した<br>4、<a href="https://www.baidu.com/s?wd=カ变动词&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">カ变动词</a>：来（く）る－来（き）た<br>动词TA形又名动词过去式，是用来表示过去的形式。那么这个动词用法也是非常的多的。我这时只说一些基本的要用动词TA形的句型。<br>～たことがあります<br>表示有过某种经验的句型。<br>～たあとで～<br>表示一件事完成后再做另外一件事。<br>～たほうがいいです<br>劝对方最好采取某种行为的句型<br>～たり～たりします/です<br>表示两个或两个以上的动作反复进行的句型<br>上面这四个句型是典型的用动词TA形的句型，而且都是简单的4级句型，3级还有一部份，这里就不再列出了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">日本語</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/09/日语た型/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-使用selenium实现自动化抢手办" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/11/使用selenium实现自动化抢手办/">使用selenium实现自动化抢手办</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/11/使用selenium实现自动化抢手办/" class="archive-article-date">
+  	<time datetime="2019-09-11T06:23:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上次使用请求头代抢只能抢购已经上架的商品，但是很多手办现货上架后之后只会有很少货被放出来，但官网上现货的时间很随机，所以我想通过脚本能帮我蹲官网，当现货上架的时候能自动下单，因为之前用抢票脚本时记得有用selenium来实现自动化抢购的，因为对python不是很熟悉，所以打算用java来实现。</p>
+<ul>
+<li><p>我懒得自己去找jar包，所以直接建一个maven项目，在maven仓库搜索selenium，找到相应的jar包（注意版本过低可能与下载的geckodriver不兼容）。</p>
+</li>
+<li><p>在github上下载geckodriver来驱动火狐浏览器</p>
+</li>
+<li><p>现在开始在主类里写代码：</p>
+</li>
+<li><p>首先找到火狐的启动程序以及下载的驱动程序路径</p>
+</li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(<span class="string">"webdriver.firefox.bin"</span>,<span class="string">"D:\\火狐\\firefox.exe"</span>);</span><br><span class="line">System.setProperty(<span class="string">"webdriver.gecko.driver"</span>,<span class="string">"D:\\AutoAlter\\geckodriver.exe"</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/09/11/使用selenium实现自动化抢手办/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">脚本</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/11/使用selenium实现自动化抢手办/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-修改请求头实现自动代抢" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -803,176 +966,6 @@
 
 
   
-    <article id="post-SpringMVC学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/06/SpringMVC学习笔记/">SpringMVC学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/06/SpringMVC学习笔记/" class="archive-article-date">
-  	<time datetime="2019-07-06T06:49:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="为什么要使用SpringMVC？"><a href="#为什么要使用SpringMVC？" class="headerlink" title="为什么要使用SpringMVC？"></a><strong>为什么要使用SpringMVC？</strong></h3><p>很多应用程序的问题在于处理业务数据的对象和显示业务数据的视图之间存在紧密耦合，通常，更新业务对象的命令都是从视图本身发起的，使视图对任何业务对象更改都有高度敏感性。而且，当多个视图依赖于同一个业务对象时是没有灵活性的。</p>
-<p><strong>具体流程</strong></p>
-<ol>
-<li><p>首先浏览器发送请求——&gt;DispatcherServlet，前端控制器收到请求后自己不进行处理，而是委托给其他的解析器进行处理，作为统一访问点，进行全局的流程控制；</p>
-</li>
-<li><p>DispatcherServlet——&gt;HandlerMapping，处理器映射器将会把请求映射为HandlerExecutionChain对象（包含一个Handler处理器对象、多个HandlerInterceptor拦截器）对象；</p>
-        
-          <a class="article-more-a" href="/2019/07/06/SpringMVC学习笔记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/06/SpringMVC学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-导入bootstrap框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/05/导入bootstrap框架/">导入bootstrap框架</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/05/导入bootstrap框架/" class="archive-article-date">
-  	<time datetime="2019-07-05T14:51:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>在Bootstrap官网下载后，会得到一个编译并压缩后的 CSS、JavaScript 和字体文件。不包含文档和源码文件。</p>
-<p>解压成文件夹。</p>
-</li>
-<li><p>在webapp文件夹下创建static文件夹，并在该文件下paste解压后的bootstrap文件夹。</p>
-</li>
-<li><p>根据bootstrap文档，在页面的头标签内分别导入bootstrap文件夹css目录下的bootstrap.min.css文件，</p>
-<p>js目录下的bootstrap.min.js文件。</p>
-</li>
-<li><p>在static文件夹下创建js文件夹放置自己的js文件，下载jquery后paste到js文件夹下</p>
-</li>
-<li><p>在头标签中导入jquery</p>
-</li>
-<li><p>现在可以根据Bootstrap文档使用bootstrap框架</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/05/导入bootstrap框架/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1074,6 +1067,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">脚本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
@@ -1083,6 +1080,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">日本語</a>
               </li>
              
               <li class="article-tag-list-item">
