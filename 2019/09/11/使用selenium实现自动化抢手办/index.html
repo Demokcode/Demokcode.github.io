@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Demok&#39;s blog">
 <meta property="og:description" content="上次使用请求头代抢只能抢购已经上架的商品，但是很多手办现货上架后之后只会有很少货被放出来，但官网上现货的时间很随机，所以我想通过脚本能帮我蹲官网，当现货上架的时候能自动下单，因为之前用抢票脚本时记得有用selenium来实现自动化抢购的，因为对python不是很熟悉，所以打算用java来实现。  我懒得自己去找jar包，所以直接建一个maven项目，在maven仓库搜索selenium，找到相应的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-09T14:33:43.108Z">
+<meta property="og:updated_time" content="2019-10-12T12:48:14.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用selenium实现自动化抢手办">
 <meta name="twitter:description" content="上次使用请求头代抢只能抢购已经上架的商品，但是很多手办现货上架后之后只会有很少货被放出来，但官网上现货的时间很随机，所以我想通过脚本能帮我蹲官网，当现货上架的时候能自动下单，因为之前用抢票脚本时记得有用selenium来实现自动化抢购的，因为对python不是很熟悉，所以打算用java来实现。  我懒得自己去找jar包，所以直接建一个maven项目，在maven仓库搜索selenium，找到相应的">
@@ -196,8 +196,29 @@
 <a id="more"></a>
 
 <ul>
-<li>待续。。。</li>
+<li><p>初始化驱动 最大化窗口 每次打开删除cookie 设置间隔</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WebDriver webDriver = <span class="keyword">new</span> FirefoxDriver();</span><br><span class="line">webDriver.manage().window().maximize();</span><br><span class="line">webDriver.manage().deleteAllCookies();</span><br><span class="line">webDriver.manage().timeouts().implicitlyWait(<span class="number">10</span>,TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
 </ul>
+<ul>
+<li><p>进入目标网站，找到登录按钮的XPATH路径（通过开发者模式），点击</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">webDriver.get(<span class="string">"http://www.alter-shanghai.cn/"</span>);</span><br><span class="line">WebElement loginbt1 =</span><br><span class="line">  webDriver.findElement(By.xpath(<span class="string">"/html/body/div[1]/div[1]/div[1]/a[2]"</span>));</span><br><span class="line">loginbt1.click();</span><br><span class="line">Thread.sleep(<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置登录账号和密码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">webDriver.findElement(By.name(<span class="string">"UserName"</span>)).sendKeys(<span class="string">"xxxxxxxx"</span>);</span><br><span class="line">webDriver.findElement(By.name(<span class="string">"Password"</span>)).sendKeys(<span class="string">"xxxxxxxx"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>中间操作过程一步一步用代码写出来</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">WebElement goodbt = webDriver.findElement(By.xpath(<span class="string">"/html/body/div[1]/div[2]/div[2]/ul/li[4]/a"</span>));</span><br><span class="line">goodbt.click();String gooditem = <span class="string">"贞德"</span>;</span><br><span class="line">WebElement goodname = <span class="keyword">null</span>;</span><br><span class="line">String BUY_URL = webDriver.getCurrentUrl();</span><br><span class="line"><span class="keyword">do</span>&#123;    </span><br><span class="line">    <span class="keyword">try</span> &#123;        </span><br><span class="line">        goodname = webDriver.findElement(By.partialLinkText(gooditem));        goodname.click();        </span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);    </span><br><span class="line">    &#125;<span class="keyword">catch</span> (Exception e)&#123;        webDriver.get(webDriver.getCurrentUrl());        webDriver.manage().timeouts().implicitlyWait(<span class="number">3</span>,TimeUnit.SECONDS);    </span><br><span class="line">                        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (webDriver.getCurrentUrl().contains(BUY_URL));</span><br><span class="line">String CHANTURL = webDriver.getCurrentUrl();</span><br><span class="line"><span class="keyword">do</span>&#123;        </span><br><span class="line">    WebElement hasgood = webDriver.findElement(By.xpath(<span class="string">"/html/body/div[2]/div[2]/ul/li[5]/span[2]"</span>));        <span class="keyword">if</span>(hasgood.getText().contains(<span class="string">"有库存"</span>)) &#123;            		WebElement buybt =  webDriver.findElement(By.xpath(<span class="string">"/html/body/div[2]/div[2]/ul/li[6]/table/tbody/tr/td[1]/a[1]"</span>));            			buybt.click();        </span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">else</span> &#123;            webDriver.get(webDriver.getCurrentUrl());            Thread.sleep(<span class="number">5000</span>);            webDriver.manage().timeouts().implicitlyWait(<span class="number">5</span>,TimeUnit.SECONDS);        </span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(webDriver.getCurrentUrl().contains(CHANTURL));</span><br><span class="line">WebElement moneybt = webDriver.findElement(By.xpath(<span class="string">"/html/body/div[2]/div[3]/div[2]/a[3]"</span>));</span><br><span class="line">moneybt.click();</span><br><span class="line">WebElement deliverbt = webDriver.findElement(By.name(<span class="string">"LogisticsID"</span>));</span><br><span class="line">deliverbt.click();</span><br><span class="line">WebElement paybt = webDriver.findElement(By.name(<span class="string">"PayWay"</span>));</span><br><span class="line">paybt.click();</span><br><span class="line">WebElement finishbt = webDriver.findElement(By.xpath(<span class="string">"/html/body/div[2]/form/div/div/input[2]"</span>));</span><br><span class="line">finishbt.click();</span><br><span class="line">Thread.sleep(<span class="number">500</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选项选择</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webDriver.switchTo().alert().accept();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>运行程序即可自动抢购</p>
 
       
 
@@ -443,23 +464,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">脚本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">日本語</a>
+                <a href="javascript:void(0)" class="js-tag color3">脚本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,11 +476,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">序列化接口</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">序列化接口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">日本語</a>
               </li>
             
             <div class="clearfix"></div>
