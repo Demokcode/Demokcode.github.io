@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Linux系统目录结构 | Demok&#39;s blog</title>
+  <title>Nginx入门 | Demok&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="/boot：存放的启动Linux 时使用的内核文件，包括连接文件以及镜像文件。  /etc：存放所有的系统需要的配置文件和子目录列表，更改目录下的文件可能会导致系统不能启动。  /lib：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。  /sys： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个">
-<meta name="keywords" content="linux">
+  <meta name="description" content="Nginx能做什么​    ——反向代理 ​    ——负载均衡 ​    ——HTTP服务器（动静分离）    ——正向代理 1、反向代理    反向代理应该是Nginx做的最多的一件事了，什么是反向代理呢，以下是百度百科的说法：反向代理（Reverse Proxy）方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给inte">
+<meta name="keywords" content="服务器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux系统目录结构">
-<meta property="og:url" content="http://yoursite.com/2019/07/17/Linux系统目录结构/index.html">
+<meta property="og:title" content="Nginx入门">
+<meta property="og:url" content="http://yoursite.com/2020/02/05/Nginx入门/index.html">
 <meta property="og:site_name" content="Demok&#39;s blog">
-<meta property="og:description" content="/boot：存放的启动Linux 时使用的内核文件，包括连接文件以及镜像文件。  /etc：存放所有的系统需要的配置文件和子目录列表，更改目录下的文件可能会导致系统不能启动。  /lib：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。  /sys： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个">
+<meta property="og:description" content="Nginx能做什么​    ——反向代理 ​    ——负载均衡 ​    ——HTTP服务器（动静分离）    ——正向代理 1、反向代理    反向代理应该是Nginx做的最多的一件事了，什么是反向代理呢，以下是百度百科的说法：反向代理（Reverse Proxy）方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给inte">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-17T04:46:04.863Z">
+<meta property="og:updated_time" content="2020-02-05T08:42:47.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux系统目录结构">
-<meta name="twitter:description" content="/boot：存放的启动Linux 时使用的内核文件，包括连接文件以及镜像文件。  /etc：存放所有的系统需要的配置文件和子目录列表，更改目录下的文件可能会导致系统不能启动。  /lib：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。  /sys： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个">
+<meta name="twitter:title" content="Nginx入门">
+<meta name="twitter:description" content="Nginx能做什么​    ——反向代理 ​    ——负载均衡 ​    ——HTTP服务器（动静分离）    ——正向代理 1、反向代理    反向代理应该是Nginx做的最多的一件事了，什么是反向代理呢，以下是百度百科的说法：反向代理（Reverse Proxy）方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给inte">
   
     <link rel="alternative" href="/atom.xml" title="Demok&#39;s blog" type="application/atom+xml">
   
@@ -159,66 +159,93 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux系统目录结构" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Nginx入门" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux系统目录结构
+      Nginx入门
     </h1>
   
 
         
-        <a href="/2019/07/17/Linux系统目录结构/" class="archive-article-date">
-  	<time datetime="2019-07-17T04:40:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
+        <a href="/2020/02/05/Nginx入门/" class="archive-article-date">
+  	<time datetime="2020-02-05T08:09:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p><strong>/boot：</strong>存放的启动Linux 时使用的内核文件，包括连接文件以及镜像文件。</p>
-</li>
-<li><p><strong>/etc：</strong>存放<strong>所有</strong>的系统需要的<strong>配置文件</strong>和<strong>子目录列表，</strong>更改目录下的文件可能会导致系统不能启动。</p>
-</li>
-<li><p><strong>/lib</strong>：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。</p>
-</li>
-<li><p><strong>/sys</strong>： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。sysfs文件系统集成了下面3种文件系统的信息：针对进程信息的proc文件系统、针对设备的devfs文件系统以及针对伪终端的devpts文件系统。该文件系统是内核设备树的一个直观反映。当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中</p>
-<p><strong>指令集合：</strong></p>
-</li>
-<li><p><strong>/bin：</strong>存放着最常用的程序和指令</p>
-</li>
-<li><p><strong>/sbin：</strong>只有系统管理员能使用的程序和指令。</p>
-<p><strong>账户：</strong></p>
-</li>
-<li><p><strong>/root</strong>：系统管理员的用户主目录。</p>
+        <h2 id="Nginx能做什么"><a href="#Nginx能做什么" class="headerlink" title="Nginx能做什么"></a>Nginx能做什么</h2><p>​    ——反向代理</p>
+<p>​    ——负载均衡</p>
+<p>​    ——HTTP服务器（动静分离）</p>
+<p>   ——正向代理</p>
+<p>1、反向代理</p>
+<p>   反向代理应该是Nginx做的最多的一件事了，什么是反向代理呢，以下是百度百科的说法：反向代理（Reverse Proxy）方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。简单来说就是真实的服务器不能直接被外部网络访问，所以需要一台代理服务器，而代理服务器能被外部网络访问的同时又跟真实服务器在同一个网络环境，当然也可能是同一台服务器，端口不同而已。</p>
 <a id="more"></a>
+
+<ul>
+<li><p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sever&#123;</span><br><span class="line">	listen    		80;</span><br><span class="line">	sever_name localhost;</span><br><span class="line">	client_max_body_size 1024M;</span><br><span class="line">	</span><br><span class="line">	location /&#123;</span><br><span class="line">		proxy_pass http://localhost:8080;</span><br><span class="line">		proxy_set_header Host $host:$server_port;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
-<li><p><strong>/home</strong>：用户的主目录，以用户的账号命名的。</p>
+</ul>
+<p>2、负载均衡</p>
+<p> 负载均衡也是Nginx常用的一个功能，负载均衡其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。简单而言就是当有2台或以上服务器时，根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。而Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。</p>
+<p>  1、RR（默认）</p>
+<p>​    每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</p>
+<p>​    简单配置</p>
+<p>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">upstream test&#123;</span><br><span class="line">	sever localhost:8080;</span><br><span class="line">	sever localhost:8081;</span><br><span class="line">&#125;</span><br><span class="line">server&#123;</span><br><span class="line">	listen			81;</span><br><span class="line">	server_name      localhost;</span><br><span class="line">	client_max_body_size  1024M;</span><br><span class="line">	</span><br><span class="line">	location / &#123;</span><br><span class="line">		proxy_pass http://test;</span><br><span class="line">		proxy_set_header Host $host:$sever_port;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>负载均衡核心代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sever localhost:8080;</span><br><span class="line">sever localhost:8081;</span><br></pre></td></tr></table></figure>
+
+<p>这里我配置了2台服务器，当然实际上是一台，只是端口不一样而已，而8081的服务器是不存在的,也就是说访问不到，但是我们访问<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 的时候,也不会有问题，会默认跳转到<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> 具体是因为Nginx会自动判断服务器的状态，如果服务器处于不能访问（服务器挂了），就不会跳转到这台服务器，所以也避免了一台服务器挂了影响使用的情况，由于Nginx默认是RR策略，所以我们不需要其他更多的设置。</p>
+<p>2、权重</p>
+<p>指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</p>
+<p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream test&#123;</span><br><span class="line">	sever localhost:8080 weight=9;</span><br><span class="line">	sever localhost:8081 weight=1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么10次一般只会有1次会访问到8081，而有9次会访问到8080</p>
+<p>3、ip_hash</p>
+<p>上面的2种方式都有一个问题，那就是下一个请求来的时候请求可能分发到另外一个服务器，当我们的程序不是无状态的时候（采用了session保存数据），这时候就有一个很大的很问题了，比如把登录信息保存到了session中，那么跳转到另外一台服务器的时候就需要重新登录了，所以很多时候我们需要一个客户只访问一个服务器，那么就需要用iphash了，iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream test&#123;</span><br><span class="line">	ip_hash;</span><br><span class="line">	sever localhost:8080;</span><br><span class="line">	sever localhost:8081;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、fair（第三方）</p>
+<p>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream test&#123;</span><br><span class="line">	fair;</span><br><span class="line">	sever localhost:8080;</span><br><span class="line">	sever localhost:8081;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5、url_hash（第三方）</p>
+<p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。 在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">upstream test&#123;</span><br><span class="line">	hash $request_uri;</span><br><span class="line">	hash_method crc32;</span><br><span class="line">	sever localhost:8080;</span><br><span class="line">	sever localhost:8081;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上5种负载均衡各自适用不同情况下使用，所以可以根据实际情况选择使用哪种策略模式,不过fair和url_hash需要安装第三方模块才能使用，由于本文主要介绍Nginx能做的事情，所以Nginx安装第三方模块不会再本文介绍</p>
+<ul>
+<li><p>HTTP服务器</p>
+<p>Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器，同时现在也很流行动静分离，就可以通过Nginx来实现，首先看看Nginx做静态资源服务器</p>
 </li>
-<li><p><strong>/usr</strong>：用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</p>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sever&#123;</span><br><span class="line">	 listen         80;</span><br><span class="line">	 sever_name     localhost;</span><br><span class="line">	 client_max_body_size	1024M;</span><br><span class="line">	 </span><br><span class="line">	 location  / &#123;</span><br><span class="line">	 	root	e:\wwwroot;</span><br><span class="line">	 	index   index.html;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  这样如果访问<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 就会默认访问到E盘wwwroot目录下面的index.html，如果一个网站只是静态页面的话，那么就可以通过这种方式来实现部署。</p>
+<p>  ​    </p>
+<ul>
+<li><p>动静分离</p>
+<p>动静分离是让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来，动静资源做好了拆分以后，我们就可以根据静态资源的特点将其做缓存操作，这就是网站静态化处理的核心思路</p>
 </li>
-<li><p><strong>/usr/bin：</strong>系统用户使用的应用程序与指令。</p>
-</li>
-<li><p><strong>/usr/sbin：</strong>超级用户使用的比较高级的管理程序和系统守护程序。</p>
-</li>
-<li><p><strong>/usr/src：</strong>内核源代码默认的放置目录。</p>
-<p><strong>运行过程中要用：</strong></p>
-</li>
-<li><p><strong>/var</strong>：存放经常修改的数据，比如程序运行的日志文件（/var/log 目录下）。</p>
-</li>
-<li><p><strong>/proc</strong>：管理<strong>内存空间！</strong>虚拟的目录，是系统内存的映射，我们可以直接访问这个目录来，获取系统信息。这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件来做修改。</p>
-<p><strong>扩展用的：</strong></p>
-</li>
-<li><p><strong>/opt</strong>：默认是空的，我们安装额外软件可以放在这个里面。</p>
-</li>
-<li><p><strong>/srv</strong>：存放服务启动后需要提取的数据<strong>（不用服务器就是空）</strong></p>
-</li>
-<li><p>.  ：代表当前的目录，也可以使用 ./ 来表示；</p>
-<p>.. ：代表上一层目录，也可以 ../ 来代表。</p>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">upstream sever&#123;</span><br><span class="line">	sever localhost:8080;</span><br><span class="line">	sever localhost:8081;</span><br><span class="line">&#125;</span><br><span class="line">sever&#123;</span><br><span class="line">	listen			80;</span><br><span class="line">	sever_name 		localhost;</span><br><span class="line">	</span><br><span class="line">	location  /  &#123;</span><br><span class="line">		root  	e://wwwroot;</span><br><span class="line">		index	index.html;</span><br><span class="line">	&#125;</span><br><span class="line">	#所有静态请求都有nginx处理 存放目录为html</span><br><span class="line">	location ~ \.(gif|jpg|jpeg|png|bmp|swf|css|js)$&#123;</span><br><span class="line">		root	e://wwwroot;</span><br><span class="line">	&#125;</span><br><span class="line">	#所有动态请求都转发给tomcat处理</span><br><span class="line">	location ~ \.(jsp|do)$&#123;</span><br><span class="line">		proxy_pass http://test;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	error_page  500 502 503 504 /50x.html;</span><br><span class="line">	location = /50x.html&#123;</span><br><span class="line">		root	e://wwwroot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  这样我们就可以把HTML以及图片和css以及js放到wwwroot目录下，而tomcat只负责处理jsp和请求，例如当我们后缀为gif的时候，Nginx默认会从wwwroot获取到当前请求的动态图文件返回，当然这里的静态文件跟Nginx是同一台服务器，我们也可以在另外一台服务器，然后通过反向代理和负载均衡配置过去就好了，只要搞清楚了最基本的流程，很多配置就很简单了，另外localtion后面其实是一个正则表达式，所以非常灵活</p>
+<ul>
+<li><p>正向代理</p>
+<p>略</p>
 </li>
 </ul>
 
@@ -255,7 +282,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">服务器</a>
         		</li>
       		
 		</ul>
@@ -311,7 +338,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/17/Linux系统目录结构/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/05/Nginx入门/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -325,18 +352,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/25/初探TCP-IP协议/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          初探TCP/IP协议
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/09/通过ajax请求json数据并显示-jquery-DOM方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">通过ajax请求json数据并显示(jquery DOM方法)</div>
+    <a href="/2019/10/09/日语た型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">日语た型</div>
       <i class="icon-circle-right"></i>
     </a>
   

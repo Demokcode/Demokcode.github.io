@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Linux系统目录结构 | Demok&#39;s blog</title>
+  <title>Tag: 服务器 | Demok&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="/boot：存放的启动Linux 时使用的内核文件，包括连接文件以及镜像文件。  /etc：存放所有的系统需要的配置文件和子目录列表，更改目录下的文件可能会导致系统不能启动。  /lib：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。  /sys： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个">
-<meta name="keywords" content="linux">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux系统目录结构">
-<meta property="og:url" content="http://yoursite.com/2019/07/17/Linux系统目录结构/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Demok&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/tags/服务器/index.html">
 <meta property="og:site_name" content="Demok&#39;s blog">
-<meta property="og:description" content="/boot：存放的启动Linux 时使用的内核文件，包括连接文件以及镜像文件。  /etc：存放所有的系统需要的配置文件和子目录列表，更改目录下的文件可能会导致系统不能启动。  /lib：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。  /sys： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-17T04:46:04.863Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux系统目录结构">
-<meta name="twitter:description" content="/boot：存放的启动Linux 时使用的内核文件，包括连接文件以及镜像文件。  /etc：存放所有的系统需要的配置文件和子目录列表，更改目录下的文件可能会导致系统不能启动。  /lib：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。  /sys： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个">
+<meta name="twitter:title" content="Demok&#39;s blog">
   
     <link rel="alternative" href="/atom.xml" title="Demok&#39;s blog" type="application/atom+xml">
   
@@ -159,217 +154,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux系统目录结构" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Linux系统目录结构
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/02/05/Nginx入门/" class="archive-article-date">
+  	<time datetime="2020-02-05T08:09:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/02/05/Nginx入门/">Nginx入门</a>
     </h1>
   
 
-        
-        <a href="/2019/07/17/Linux系统目录结构/" class="archive-article-date">
-  	<time datetime="2019-07-17T04:40:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p><strong>/boot：</strong>存放的启动Linux 时使用的内核文件，包括连接文件以及镜像文件。</p>
-</li>
-<li><p><strong>/etc：</strong>存放<strong>所有</strong>的系统需要的<strong>配置文件</strong>和<strong>子目录列表，</strong>更改目录下的文件可能会导致系统不能启动。</p>
-</li>
-<li><p><strong>/lib</strong>：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。</p>
-</li>
-<li><p><strong>/sys</strong>： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。sysfs文件系统集成了下面3种文件系统的信息：针对进程信息的proc文件系统、针对设备的devfs文件系统以及针对伪终端的devpts文件系统。该文件系统是内核设备树的一个直观反映。当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中</p>
-<p><strong>指令集合：</strong></p>
-</li>
-<li><p><strong>/bin：</strong>存放着最常用的程序和指令</p>
-</li>
-<li><p><strong>/sbin：</strong>只有系统管理员能使用的程序和指令。</p>
-<p><strong>账户：</strong></p>
-</li>
-<li><p><strong>/root</strong>：系统管理员的用户主目录。</p>
-<a id="more"></a>
-</li>
-<li><p><strong>/home</strong>：用户的主目录，以用户的账号命名的。</p>
-</li>
-<li><p><strong>/usr</strong>：用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</p>
-</li>
-<li><p><strong>/usr/bin：</strong>系统用户使用的应用程序与指令。</p>
-</li>
-<li><p><strong>/usr/sbin：</strong>超级用户使用的比较高级的管理程序和系统守护程序。</p>
-</li>
-<li><p><strong>/usr/src：</strong>内核源代码默认的放置目录。</p>
-<p><strong>运行过程中要用：</strong></p>
-</li>
-<li><p><strong>/var</strong>：存放经常修改的数据，比如程序运行的日志文件（/var/log 目录下）。</p>
-</li>
-<li><p><strong>/proc</strong>：管理<strong>内存空间！</strong>虚拟的目录，是系统内存的映射，我们可以直接访问这个目录来，获取系统信息。这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件来做修改。</p>
-<p><strong>扩展用的：</strong></p>
-</li>
-<li><p><strong>/opt</strong>：默认是空的，我们安装额外软件可以放在这个里面。</p>
-</li>
-<li><p><strong>/srv</strong>：存放服务启动后需要提取的数据<strong>（不用服务器就是空）</strong></p>
-</li>
-<li><p>.  ：代表当前的目录，也可以使用 ./ 来表示；</p>
-<p>.. ：代表上一层目录，也可以 ../ 来代表。</p>
-</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>ありがとうございます<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">服务器</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/17/Linux系统目录结构/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/07/25/初探TCP-IP协议/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          初探TCP/IP协议
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/07/09/通过ajax请求json数据并显示-jquery-DOM方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">通过ajax请求json数据并显示(jquery DOM方法)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -392,9 +230,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
